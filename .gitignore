@@ -1,0 +1,4 @@
+*.bin
+*.exe
+token.txt
+data/*
