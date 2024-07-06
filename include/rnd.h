@@ -3,6 +3,6 @@
 
 extern void rnd_init(void);
 extern void rnd_deinit(void);
-extern int rnd_byte(void);
+extern int rnd_int(void);
 
 #endif
