@@ -11,6 +11,11 @@ enum znak {sedam, osam, devet, deset, decko, baba, kralj, as};
 /* karta je integer iz  [0, 32>
  * n%8 je znak          [0,  8>
  * n/8 je boja          [0,  4>
+ * boja je:
+ *   0 - zir
+ *   1 - srce
+ *   2 - list
+ *   3 - zvono
  */
 
 static int bodovi[] = {
