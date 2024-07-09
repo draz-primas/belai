@@ -106,17 +106,15 @@ void render(struct bela_stanje *stanje) {
             SDL_RenderDrawRect(ren, &rct);
         }
     }
-    // for (int i=0; i<num_baceno; ++i) {
-    //     SDL_Rect rect = {
-    //         .x = WIDTH/2 - 2*w + w*i,
-    //         .y = HEIGHT/2 - h/2,
-    //         .w = w,
-    //         .h = h
-    //     };
-    //     if (baceno[i].boja != nista)
-    //         SDL_RenderCopy(ren, karte_ren
-    //         [baceno[i].boja]
-    //         [baceno[i].znak].tex, NULL, &rect);
-    // }
+    for (int i = 0; i < 4; ++i) {
+        SDL_Rect r = {
+            .x = 8*30*i  -1,
+            .y = h + 5,
+            .w = 2,
+            .h = 10 + 4*30,
+        };
+        SDL_SetRenderDrawColor(ren, 0, 0, 255, 255);
+        SDL_RenderFillRect(ren, &r);
+    }
     SDL_RenderPresent(ren);
 }
