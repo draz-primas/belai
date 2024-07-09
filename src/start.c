@@ -17,9 +17,13 @@ int ucitaj_kartu(void) {
 input1:
     scanf(" %c%c", &boja, &znak);
     switch (boja) {
+        case 't':
         case 'T': t1 = 0; break;
+        case 'k':
         case 'K': t1 = 1; break;
+        case 'h':
         case 'H': t1 = 2; break;
+        case 'p':
         case 'P': t1 = 3; break;
         default:
         printf("kriva boja\n");
@@ -29,10 +33,15 @@ input1:
         case '7': t2 = 0; break;
         case '8': t2 = 1; break;
         case '9': t2 = 2; break;
+        case 'x':
         case 'X': t2 = 3; break;
+        case 'j':
         case 'J': t2 = 4; break;
+        case 'd':
         case 'D': t2 = 5; break;
+        case 'k':
         case 'K': t2 = 6; break;
+        case 'a':
         case 'A': t2 = 7; break;
         default:
         printf("krivi znak\n");
@@ -93,6 +102,7 @@ struct bela_stanje start(void) {
         .prvi = prvi,
         .sijeceno = 0,
         .najjaca = -1,
+        .bodovi = {0},
     };
 
     for (int i = 1; i < 4; ++i)

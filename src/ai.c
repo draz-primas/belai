@@ -6,6 +6,9 @@
 int izaberi_kartu(struct bela_stanje *s) {
     int karta = 0;
     moze_se_bacit(s);
+    /* podijeli karte randomly */
+    // struct bela_stanje stanje = *s;
+    
 loop:
     karta = rnd_int()%8;
     if (s->moze[karta]) {

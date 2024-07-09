@@ -72,3 +72,12 @@ void moze_se_bacit(struct bela_stanje *s) {
         s->moze[i] = s->moje_karte[i] != -8;
     return;
 }
+
+void izbroji_stih(struct bela_stanje *s) {
+    int *dobiva = &s->bodovi[s->sljedeci_na_redu%2];
+    for (int i = 0; i < 4; ++i) {
+        int karta = s->stih[i];
+        *dobiva += karta/8 == s->adut ?
+        bodovi_adut[karta%8] : bodovi[karta%8];
+    }
+}

@@ -5,5 +5,6 @@
 
 extern int jaca(int ova, int od_ove, int adut);
 extern void moze_se_bacit(struct bela_stanje *s);
+extern void izbroji_stih(struct bela_stanje *s);
 
 #endif

@@ -56,6 +56,7 @@ struct bela_stanje {
     int adut;
     int sijeceno;
     int najjaca;
+    int bodovi[2];
 };
 
 #endif

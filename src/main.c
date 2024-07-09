@@ -6,12 +6,13 @@
 #include "bela.h"
 #include "render.h"
 #include "ai.h"
+#include "popravi.h"
+
+int bacili[4] = {0};
 
 int main(void) {
-    int promjenjeno = 0;
     int karta;
     // @TODO: pretvori ovo u O(1) (makni)
-    int bacili[4] = {0};
     rnd_init();
     render_init();
     struct bela_stanje s = start();
@@ -22,6 +23,7 @@ for (int runda = 0; runda < 8; ++runda) {
     s.prvi = s.sljedeci_na_redu;
     s.najjaca = -1;
     s.na_redu = s.prvi;
+    izbroji_stih(&s);
     for (int i = 0; i < 4; ++i) bacili[i] = 0;
     for (int i = 0; i < 4; ++i) {
         bacili[s.na_redu] = 1;
@@ -99,58 +101,13 @@ for (int runda = 0; runda < 8; ++runda) {
         }
 
     end:
-        promjenjeno = 0;
-        /* situacija X+XX */
-        for (int j = 0; j < 32; ++j) {
-            int n = 0;
-            int t = 0;
-            for (int k = 0; k < 4; ++k) {
-                n += s.karte[k][j] == nema;
-                t += s.karte[k][j] == ima;
-            }
-
-            if (n != 3 || t) continue;
-            printf("promjenjeno 1: %d\n", j);
-            promjenjeno = 1;
-            for (int k = 0; k < 4; ++k)
-                if (s.karte[k][j] != nema) s.karte[k][j] = ima;
-        }
-
-        /* slicna stvar */
-        for (int j = 0; j < 4; ++j) {
-            int nima = 0;
-            int nnema = 0;
-            for (int k = 0; k < 32; ++k) {
-                nima  += s.karte[j][k] == ima;
-                nnema += s.karte[j][k] == nema;
-            }
-
-            int praznih = 32-nima-nnema;
-            int ima_karata = 8-runda-bacili[j];
-            /* mora imat i ostale onda */
-            if (praznih && praznih + nima == ima_karata) {
-                printf("promjenjeno 2, 1: %d\n", j);
-                promjenjeno = 1;
-                for (int k = 0; k < 32; ++k)
-                    if (s.karte[j][k] == mozda)
-                        s.karte[j][k] = ima;
-            }
-            /* onda nema nijednu od ostalih */
-            if (nima == ima_karata && praznih != 0) {
-                printf("promjenjeno 2, 2: %d\n", j);
-                promjenjeno = 1;
-                for (int k = 0; k < 32; ++k)
-                    if (s.karte[j][k] == mozda)
-                        s.karte[j][k] = nema;
-            }
-        }
-        if (promjenjeno) goto end;
-
+        popravi(&s, runda);
         s.na_redu = (s.na_redu + 1)%4;
         s.baceno++;
         render(&s);
     }
 }
+    printf("bodovi: %d vs %d\n", s.bodovi[0], s.bodovi[1]);
     render_deinit();
     rnd_deinit();
 }
