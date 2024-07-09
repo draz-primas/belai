@@ -13,12 +13,12 @@ enum znak {sedam, osam, devet, deset, decko, baba, kralj, as};
  * n/8 je boja          [0,  4>
  * boja je:
  *   0 - zir
- *   1 - srce
- *   2 - list
- *   3 - zvono
+ *   1 - zvono
+ *   2 - srce
+ *   3 - list
  */
 
-static char znakovi[] = { 'T', 'H', 'P', 'K' };
+static char znakovi[] = { 'T', 'K', 'H', 'P' };
 
 static int bodovi[] = {
     [sedam] = 0,
@@ -47,11 +47,15 @@ struct bela_stanje {
     /* 4 igraca po 32 karte */
     enum stanje karte[4][32];
     int moje_karte[8];
+    int moze[8];
     int stih[4];
     int prvi;
     int na_redu;
+    int sljedeci_na_redu;
     int baceno; /* baceno = na_redu - prvi */
     int adut;
+    int sijeceno;
+    int najjaca;
 };
 
 #endif

@@ -5,6 +5,8 @@ static FILE *file = NULL;
 
 void rnd_init(void) {
     file = fopen("/dev/urandom", "r");
+    if (file == NULL)
+        printf("nisam uspio otvorit /dev/urandom");
 }
 
 void rnd_deinit(void) {
