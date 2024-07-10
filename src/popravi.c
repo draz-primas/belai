@@ -1,9 +1,8 @@
-#include <stdio.h>
+// #include <stdio.h>
 #include "popravi.h"
 #include "core.h"
 
 int promjenjeno;
-extern int bacili[4];
 
 void popravi(struct bela_stanje *s) {
 loop:
@@ -18,15 +17,17 @@ loop:
         }
 
         if (n != 3 && t) {
+            // printf("promjenjeno 1, 1: %d\n", j);
             promjenjeno = 1;
-            for (int k = 0; k > 4; ++k)
+            for (int k = 0; k < 4; ++k)
                 if (s->karte[k][j] == mozda) s->karte[k][j] = nema;
         }
-        if (n != 3 || t) continue;
-        printf("promjenjeno 1: %d\n", j);
-        promjenjeno = 1;
-        for (int k = 0; k < 4; ++k)
-            if (s->karte[k][j] == mozda) s->karte[k][j] = ima;
+        if (n == 3 && !t) {
+            // printf("promjenjeno 1, 2: %d\n", j);
+            promjenjeno = 1;
+            for (int k = 0; k < 4; ++k)
+                if (s->karte[k][j] == mozda) s->karte[k][j] = ima;
+        }
     }
 
     /* slicna stvar */
@@ -39,10 +40,10 @@ loop:
         }
 
         int praznih = 32-nima-nnema;
-        int ima_karata = 8-s->runda-bacili[j];
+        int ima_karata = 8-s->runda-s->bacili[j];
         /* mora imat i ostale onda */
         if (praznih && praznih + nima == ima_karata) {
-            printf("promjenjeno 2, 1: %d\n", j);
+            // printf("promjenjeno 2, 1: %d\n", j);
             promjenjeno = 1;
             for (int k = 0; k < 32; ++k)
                 if (s->karte[j][k] == mozda)
@@ -50,7 +51,7 @@ loop:
         }
         /* onda nema nijednu od ostalih */
         if (nima == ima_karata && praznih != 0) {
-            printf("promjenjeno 2, 2: %d\n", j);
+            // printf("promjenjeno 2, 2: %d\n", j);
             promjenjeno = 1;
             for (int k = 0; k < 32; ++k)
                 if (s->karte[j][k] == mozda)

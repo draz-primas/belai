@@ -108,6 +108,7 @@ struct bela_stanje start(void) {
         .najjaca = -1,
         .bodovi = {0},
         .runda = 0,
+        .bacili = {0},
     };
 
     for (int i = 1; i < 4; ++i)

@@ -8,8 +8,6 @@
 #include "ai.h"
 #include "popravi.h"
 
-int bacili[4] = {0};
-
 int main(void) {
     int karta;
     // @TODO: pretvori ovo u O(1) (makni)
@@ -23,19 +21,22 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
     s.prvi = s.sljedeci_na_redu;
     s.najjaca = -1;
     s.na_redu = s.prvi;
-    izbroji_stih(&s);
-    for (int i = 0; i < 4; ++i) bacili[i] = 0;
+    for (int i = 0; i < 4; ++i) s.bacili[i] = 0;
     for (int i = 0; i < 4; ++i) {
-        bacili[s.na_redu] = 1;
+        s.bacili[s.na_redu] = 1;
         render(&s);
         if (s.na_redu == 0) {
             karta = izaberi_kartu(&s);
-            printf("izabrano: %d\n", karta);
+            printf("izabrano:\n");
+            printaj_kartu(karta);
+            printf("\n");
             sleep(1);
             render(&s);
         }
-        printf("karta koju je bacio igrac %d: ", s.na_redu);
-        karta = ucitaj_kartu();
+        else {
+            printf("karta koju je bacio igrac %d: ", s.na_redu);
+            karta = ucitaj_kartu();
+        }
         int boja = karta/8;
         s.stih[i] = karta;
         int prva_boja = s.stih[0]/8;
@@ -106,6 +107,7 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
         s.baceno++;
         render(&s);
     }
+    izbroji_stih(&s);
 }
     printf("bodovi: %d vs %d\n", s.bodovi[0], s.bodovi[1]);
     render_deinit();
