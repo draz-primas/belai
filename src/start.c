@@ -37,8 +37,8 @@ input1:
         case 'X': t2 = 3; break;
         case 'j':
         case 'J': t2 = 4; break;
-        case 'd':
-        case 'D': t2 = 5; break;
+        case 'q':
+        case 'Q': t2 = 5; break;
         case 'k':
         case 'K': t2 = 6; break;
         case 'a':
@@ -74,9 +74,13 @@ struct bela_stanje start(void) {
         char c;
         scanf("%c", &c);
         switch (c) {
+            case 't':
             case 'T': adut = 0; break;
+            case 'k':
             case 'K': adut = 1; break;
+            case 'h':
             case 'H': adut = 2; break;
+            case 'p':
             case 'P': adut = 3; break;
             default:
             printf("kriva boja\n");
