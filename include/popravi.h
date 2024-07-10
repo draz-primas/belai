@@ -3,6 +3,6 @@
 
 #include "core.h"
 
-extern void popravi(struct bela_stanje *s, int runda);
+extern void popravi(struct bela_stanje *s);
 
 #endif

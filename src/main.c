@@ -17,7 +17,7 @@ int main(void) {
     render_init();
     struct bela_stanje s = start();
     render(&s);
-for (int runda = 0; runda < 8; ++runda) {
+for (s.runda = 0; s.runda < 8; ++s.runda) {
     s.sijeceno = 0;
     s.baceno = 0;
     s.prvi = s.sljedeci_na_redu;
@@ -101,7 +101,7 @@ for (int runda = 0; runda < 8; ++runda) {
         }
 
     end:
-        popravi(&s, runda);
+        popravi(&s);
         s.na_redu = (s.na_redu + 1)%4;
         s.baceno++;
         render(&s);

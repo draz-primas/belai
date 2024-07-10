@@ -5,7 +5,7 @@
 int promjenjeno;
 extern int bacili[4];
 
-void popravi(struct bela_stanje *s, int runda) {
+void popravi(struct bela_stanje *s) {
 loop:
     promjenjeno = 0;
     /* situacija X+XX */
@@ -17,11 +17,16 @@ loop:
             t += s->karte[k][j] == ima;
         }
 
+        if (n != 3 && t) {
+            promjenjeno = 1;
+            for (int k = 0; k > 4; ++k)
+                if (s->karte[k][j] == mozda) s->karte[k][j] = nema;
+        }
         if (n != 3 || t) continue;
         printf("promjenjeno 1: %d\n", j);
         promjenjeno = 1;
         for (int k = 0; k < 4; ++k)
-            if (s->karte[k][j] != nema) s->karte[k][j] = ima;
+            if (s->karte[k][j] == mozda) s->karte[k][j] = ima;
     }
 
     /* slicna stvar */
@@ -34,7 +39,7 @@ loop:
         }
 
         int praznih = 32-nima-nnema;
-        int ima_karata = 8-runda-bacili[j];
+        int ima_karata = 8-s->runda-bacili[j];
         /* mora imat i ostale onda */
         if (praznih && praznih + nima == ima_karata) {
             printf("promjenjeno 2, 1: %d\n", j);
