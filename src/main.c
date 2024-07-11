@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <time.h>
 #include "core.h"
 #include "rnd.h"
 #include "start.h"
@@ -26,7 +27,9 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
         s.bacili[s.na_redu] = 1;
         render(&s);
         if (s.na_redu == 0) {
+            clock_t start = clock();
             karta = izaberi_kartu(&s);
+            printf("trebalo vremena: %f\n", ((double)(clock()-start))/CLOCKS_PER_SEC);
             printf("izabrano:\n");
             printaj_kartu(karta);
             printf("\n");

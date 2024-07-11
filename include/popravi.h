@@ -1,8 +1,9 @@
 #ifndef POPRAVI_2304783974
 #define POPRAVI_2304783974
 
-#include "core.h"
+// #include "core.h"
 
-extern void popravi(struct bela_stanje *s);
+// extern inline void popravi(struct bela_stanje *s);
+#include "../src/popravi.c"
 
 #endif

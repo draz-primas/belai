@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include "core.h"
-#include "bela.h"
+// #include "bela.h"
 
-int jaca(int ova, int od_ove, int adut) {
+static inline int jaca(int ova, int od_ove, int adut) {
     int *skala = adut ? bodovi_adut : bodovi;
     if (skala[ova%8] == skala[od_ove%8]) /* npr. 7 i 8 */
         return ova > od_ove;
     return skala[ova%8] > skala[od_ove%8];
 }
 
-void moze_se_bacit(struct bela_stanje *s, int kartee[8]) {
+static inline void moze_se_bacit(struct bela_stanje *s, int kartee[8]) {
     int *karte = s->moje_karte;
     if (kartee != NULL) karte = kartee;
     int imam_dobru_boju = 0;
@@ -82,7 +82,7 @@ void moze_se_bacit(struct bela_stanje *s, int kartee[8]) {
     return;
 }
 
-void izbroji_stih(struct bela_stanje *s) {
+static inline void izbroji_stih(struct bela_stanje *s) {
     int *dobiva = &s->bodovi[s->sljedeci_na_redu%2];
     for (int i = 0; i < 4; ++i) {
         int karta = s->stih[i];
@@ -92,7 +92,7 @@ void izbroji_stih(struct bela_stanje *s) {
     if (s->runda == 7) *dobiva += 10;
 }
 
-void printaj_kartu(int karta) {
+static inline void printaj_kartu(int karta) {
     if (karta == -8) {
         printf("--\n");
         return;

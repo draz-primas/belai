@@ -27,7 +27,9 @@ build/%-g.o:: %.c
 	$(CC) -c $< -o $@ $(flagsbuild) -g -fsanitize=address
 
 clean:
-	rm -rf build/* $(TARGET)
+	rm -rf build
+	mkdir -p build
+	mkdir -p $(foreach dir, $(source_dirs), build/$(dir))
 
 export-compile-flags:
 	echo "$(flagsbuild) $(flagslink)" | tr -s '[:space:]' '\n' > compile_flags.txt

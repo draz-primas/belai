@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 #include <unistd.h>
+#include <string.h>
 #include <SDL2/SDL_timer.h>
 #include "ai.h"
 #include "core.h"
@@ -16,8 +18,8 @@ struct prazne {
     int n;
 };
 
-int wins[8];
-int bod[8];
+double wins[8];
+double bod[8];
 int odigrano[8];
 
 static struct bela_stanje podijeli_karte(struct bela_stanje *s) {
@@ -179,30 +181,34 @@ int izaberi_kartu(struct bela_stanje *s) {
         // render(&stanje);
         // SDL_Delay(100);
 
+        int karte2[4][8];
         for (int j = 0; j < 1000; ++j) {
-            int karte2[4][8];
-            for (int k = 0; k < 4; ++k)
-                for (int l = 0; l < 8; ++l)
-                    karte2[k][l] = karte[k][l];
+            memcpy(karte2, karte, 4*8*sizeof(int));
+            // for (int k = 0; k < 4; ++k)
+            //     for (int l = 0; l < 8; ++l)
+            //         karte2[k][l] = karte[k][l];
 
             odigraj_partiju(stanje, karte2);
         }
-        printf("prodeno %d/1000\n", i+1);
+        // printf("prodeno %d/1000\n", i+1);
         // render(&stanje);
         // SDL_Delay(1);
     }
     int najbolja = 0;
-    int najbolja_win = 0;
-    int najbolja_bod = 0;
+    double najbolja_win = 0;
+    double najbolja_bod = 0;
+    double najbolja_odigrano = 1;
     for (int i = 0; i < 8; ++i) {
         if (odigrano[i]) {
-            printf("[%d]: avg bod: %d, win rate: %d%%\n",
+            printf("[%d]: avg bod: %.1f, win rate: %.1f%%\n",
                    i, bod[i]/odigrano[i], wins[i]*100/odigrano[i]);
-            if (wins[i] > najbolja_win ||
-              (wins[i] == najbolja_win && bod[i] > najbolja_bod)) {
+            if (wins[i]/odigrano[i] > najbolja_win/najbolja_odigrano ||
+              (wins[i]/odigrano[i] == najbolja_win/najbolja_odigrano &&
+               bod[i]/odigrano[i] > najbolja_bod/najbolja_odigrano)) {
                 najbolja = i;
                 najbolja_win = wins[i];
                 najbolja_bod = bod[i];
+                najbolja_odigrano = 0;
             }
         }
     }

@@ -1,10 +1,10 @@
 // #include <stdio.h>
-#include "popravi.h"
+// #include "popravi.h"
 #include "core.h"
 
-int promjenjeno;
+static int promjenjeno;
 
-void popravi(struct bela_stanje *s) {
+static inline void popravi(struct bela_stanje *s) {
 loop:
     promjenjeno = 0;
     /* situacija X+XX */
