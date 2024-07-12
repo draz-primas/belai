@@ -196,16 +196,16 @@ int izaberi_kartu(struct bela_stanje *s) {
     }
     int najbolja = 0;
     double najbolja_win = 0;
-    // double najbolja_bod = 0;
+    double najbolja_bod = 0;
     double najbolja_odigrano = 1;
     for (int i = 0; i < 8; ++i) {
         if (odigrano[i]) {
             printf("[%d]: avg bod: %.1f, win rate: %.1f%%\n",
                    i, bod[i]/odigrano[i], wins[i]*100/odigrano[i]);
-            if (wins[i]/odigrano[i] > najbolja_win/najbolja_odigrano) {
+            if (bod[i]/odigrano[i] > najbolja_bod/najbolja_odigrano) {
                 najbolja = i;
                 najbolja_win = wins[i];
-                // najbolja_bod = bod[i];
+                najbolja_bod = bod[i];
                 najbolja_odigrano = odigrano[i];
             }
         }

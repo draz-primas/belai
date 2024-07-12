@@ -84,7 +84,7 @@ void render(struct bela_stanje *stanje) {
         if (!stanje->moze[i]) SDL_RenderFillRect(ren, &rect);
 
         if (odigrano[i]) {
-            int hh = wins[i]/odigrano[i]*700;
+            int hh = bod[i]/odigrano[i]/162*700;
             rect = (SDL_Rect){
                 .x = i*w,
                 .y = 800-hh,
