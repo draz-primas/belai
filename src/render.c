@@ -23,6 +23,10 @@ struct bela_karta_ren{
 
 struct bela_karta_ren karte_ren[32];
 
+extern double wins[8];
+extern double bod[8];
+extern int odigrano[8];
+
 void render_init(void) {
     int wid, hig;
     char path[64];
@@ -70,7 +74,7 @@ void render(struct bela_stanje *stanje) {
     for (int i = 0; i < 8; ++i) {
         SDL_Rect rect = {
             .x = i*w,
-            .y = 0,
+            .y = 800,
             .w = w,
             .h = h,
         };
@@ -78,12 +82,26 @@ void render(struct bela_stanje *stanje) {
             SDL_RenderCopy(ren, karte_ren[stanje->moje_karte[i]].tex, NULL, &rect);
         SDL_SetRenderDrawColor(ren, 255, 0, 0, 64);
         if (!stanje->moze[i]) SDL_RenderFillRect(ren, &rect);
+
+        if (odigrano[i]) {
+            int hh = wins[i]/odigrano[i]*700;
+            rect = (SDL_Rect){
+                .x = i*w,
+                .y = 800-hh,
+                .w = w,
+                .h = hh,
+            };
+            SDL_SetRenderDrawColor(ren, 0, 128, 255, 255);
+            SDL_RenderFillRect(ren, &rect);
+            SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
+            SDL_RenderDrawRect(ren, &rect);
+        }
     }
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 32; ++j) {
             SDL_Rect rct = {
                 .x = j*30,
-                .y = i*30 + h + 10,
+                .y = i*30,
                 .w = 30,
                 .h = 30,
             };
@@ -109,9 +127,9 @@ void render(struct bela_stanje *stanje) {
     for (int i = 0; i < 4; ++i) {
         SDL_Rect r = {
             .x = 8*30*i  -1,
-            .y = h + 5,
+            .y = 0,
             .w = 2,
-            .h = 10 + 4*30,
+            .h = 5 + 4*30,
         };
         SDL_SetRenderDrawColor(ren, 0, 0, 255, 255);
         SDL_RenderFillRect(ren, &r);

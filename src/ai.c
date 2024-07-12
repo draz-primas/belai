@@ -147,7 +147,7 @@ int izaberi_kartu(struct bela_stanje *s) {
         bod[i] = 0;
         odigrano[i] = 0;
     }
-    for (int i = 0; i < 1000; ++i) {
+    for (int i = 0; i < 2000; ++i) {
         struct bela_stanje stanje = podijeli_karte(s);
         int karte[4][8];
         for (int j = 0; j < 4; ++j) {
@@ -182,7 +182,7 @@ int izaberi_kartu(struct bela_stanje *s) {
         // SDL_Delay(100);
 
         int karte2[4][8];
-        for (int j = 0; j < 1000; ++j) {
+        for (int j = 0; j < 2000; ++j) {
             memcpy(karte2, karte, 4*8*sizeof(int));
             // for (int k = 0; k < 4; ++k)
             //     for (int l = 0; l < 8; ++l)
@@ -191,24 +191,22 @@ int izaberi_kartu(struct bela_stanje *s) {
             odigraj_partiju(stanje, karte2);
         }
         // printf("prodeno %d/1000\n", i+1);
-        // render(&stanje);
+        render(&stanje);
         // SDL_Delay(1);
     }
     int najbolja = 0;
     double najbolja_win = 0;
-    double najbolja_bod = 0;
+    // double najbolja_bod = 0;
     double najbolja_odigrano = 1;
     for (int i = 0; i < 8; ++i) {
         if (odigrano[i]) {
             printf("[%d]: avg bod: %.1f, win rate: %.1f%%\n",
                    i, bod[i]/odigrano[i], wins[i]*100/odigrano[i]);
-            if (wins[i]/odigrano[i] > najbolja_win/najbolja_odigrano ||
-              (wins[i]/odigrano[i] == najbolja_win/najbolja_odigrano &&
-               bod[i]/odigrano[i] > najbolja_bod/najbolja_odigrano)) {
+            if (wins[i]/odigrano[i] > najbolja_win/najbolja_odigrano) {
                 najbolja = i;
                 najbolja_win = wins[i];
-                najbolja_bod = bod[i];
-                najbolja_odigrano = 0;
+                // najbolja_bod = bod[i];
+                najbolja_odigrano = odigrano[i];
             }
         }
     }
