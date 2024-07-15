@@ -36,7 +36,6 @@ void render_init(void) {
     ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
     SDL_SetRenderDrawBlendMode(ren, SDL_BLENDMODE_BLEND);
 
-    // load our image
     for (int i=0; i<4; ++i) {
         for (int j=0; j<8; ++j) {
             sprintf(path, "data/%d-%d.webp", i, prava_imena[j]);
@@ -70,7 +69,6 @@ void render(struct bela_stanje *stanje) {
 
     SDL_SetRenderDrawColor(ren, 255, 255, 255, 255);
     SDL_RenderClear(ren);
-    // copy the texture to the rendering context
     for (int i = 0; i < 8; ++i) {
         SDL_Rect rect = {
             .x = i*w,

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "core.h"
-// #include "bela.h"
 
 static inline int jaca(int ova, int od_ove, int adut) {
     int *skala = adut ? bodovi_adut : bodovi;
@@ -42,14 +41,11 @@ static inline void moze_se_bacit(struct bela_stanje *s, int kartee[8]) {
             for (int i = 0; i < 8; ++i)
                 s->moze[i] = karte[i]/8 == pocetna_boja &&
                     jaca(karte[i], s->najjaca, jeli_adut);
-            // printf("mora jacu od ");
-            // printaj_kartu(s->najjaca);
             return;
         }
         /* ako nemam jacu onda mora imat istu boju */
         for (int i = 0; i < 8; ++i)
             s->moze[i] = karte[i]/8 == pocetna_boja;
-        // printf("nema jacu ali mora istu boju\n");
         return;
     }
     /* nemam dobru boju */
@@ -64,13 +60,11 @@ static inline void moze_se_bacit(struct bela_stanje *s, int kartee[8]) {
             for (int i = 0; i < 8; ++i)
                 s->moze[i] = karte[i]/8 == s->adut &&
                   jaca(karte[i], s->najjaca, 1);
-            // printf("mora jaci adut\n");
             return;
         }
         /* inace su svi aduti dobri */
         for (int i = 0; i < 8; ++i)
             s->moze[i] = karte[i]/8 == s->adut;
-        // printf("bilo koji adut\n");
         return;
     }
 
@@ -78,7 +72,6 @@ static inline void moze_se_bacit(struct bela_stanje *s, int kartee[8]) {
     sve_su_dobre:
     for (int i = 0; i < 8; ++i)
         s->moze[i] = karte[i] != -8;
-    // printf("sve su dobre\n");
     return;
 }
 

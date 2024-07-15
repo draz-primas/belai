@@ -56,7 +56,6 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
                 s.karte[s.na_redu][j] = nema;
             for (int j = prva_boja*8; j < prva_boja*8+8; ++j)
                 s.karte[s.na_redu][j] = nema;
-            printf("kriva boja\n");
             goto end;
         }
 
@@ -66,8 +65,6 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
                 for (int j = 0; j < s.baceno; ++j) {
                     if (s.stih[j]/8 == s.adut && jaca(s.stih[j], karta, 1)) {
                         t = 0;
-                        printf("sijece ali nije jaca: %d vs %d\n",
-                               bodovi_adut[s.stih[j]%8], bodovi_adut[karta%8]);
                         for (int k = 0; k < 8; ++k) {
                             if (jaca(s.adut*8+k, s.stih[j], 1)) {
                                 s.karte[s.na_redu][s.adut*8+k] = nema;
@@ -81,7 +78,6 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
                 s.karte[s.na_redu][j] = nema;
 
             if (t) {
-                printf("sijece i sad je najjaca\n");
                 s.najjaca = karta;
                 s.sljedeci_na_redu = s.na_redu;
             }
@@ -95,10 +91,8 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
                         s.karte[s.na_redu][prva_boja*8+k] = nema;
                     }
                 }
-                printf("nema jacu\n");
             }
             else {
-                printf("sad je najjaca\n");
                 s.najjaca = karta;
                 s.sljedeci_na_redu = s.na_redu;
             }
@@ -114,5 +108,4 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
 }
     printf("bodovi: %d vs %d\n", s.bodovi[0], s.bodovi[1]);
     render_deinit();
-    rnd_deinit();
 }

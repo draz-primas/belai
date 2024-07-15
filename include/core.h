@@ -1,12 +1,7 @@
 #ifndef BELA_CORE123
 #define BELA_CORE123
 
-// enum boja {nista, zir, srce, list, zvono};
 enum znak {sedam, osam, devet, deset, decko, baba, kralj, as};
-// struct bela_karta {
-//     enum boja boja;
-//     enum znak znak;
-// };
 
 /* karta je integer iz  [0, 32>
  * n%8 je znak          [0,  8>

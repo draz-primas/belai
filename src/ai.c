@@ -9,7 +9,7 @@
 #include "render.h"
 #include "rnd.h"
 #include "popravi.h"
-// #include "render.h"
+#include "render.h"
 
 extern int bacili[4];
 
@@ -43,7 +43,6 @@ static struct bela_stanje podijeli_karte(struct bela_stanje *s) {
 
             if (n == 0) break;
             int karta = rnd_int()%n;
-            // printf("n: %d  karta: %d  igrac: %d\n", n, karta, igrac);
             stanje.karte[igrac][ptr[karta]] = ima;
             for (int i = 0; i < 4; ++i) {
                 if (stanje.karte[i][ptr[karta]] == mozda) {
@@ -71,8 +70,6 @@ static void odigraj_partiju(struct bela_stanje s, int karte[4][8]) {
         for (int i = 0; i < 4; ++i) s.bacili[i] = 0;
         for (; s.baceno < 4; ++s.baceno) {
             s.bacili[s.na_redu] = 1;
-            // render(&s);
-            // printf("runda: %d\n", s.runda);
             moze_se_bacit(&s, karte[s.na_redu]);
             int n = 0;
             int ptrs[8];
@@ -126,12 +123,8 @@ static void odigraj_partiju(struct bela_stanje s, int karte[4][8]) {
             }
 
             s.na_redu = (s.na_redu + 1)%4;
-            // s.baceno++;
         }
         izbroji_stih(&s);
-    }
-    if (s.bodovi[0] + s.bodovi[1] != 162) {
-        printf("%d vs %d\n", s.bodovi[0], s.bodovi[1]);
     }
     bod[prva_karta] += s.bodovi[0];
     wins[prva_karta] += s.bodovi[0] > s.bodovi[1];
@@ -169,30 +162,14 @@ int izaberi_kartu(struct bela_stanje *s) {
         for (int j = 0; j < 8; ++j) {
             karte[0][j] = stanje.moje_karte[j];
         }
-        // printf("karte:\n");
-        // for (int j = 0; j < 4; ++j) {
-        //     printf("[%d]: ", j);
-        //     for (int k = 0; k < 8; ++k) {
-        //         printaj_kartu(karte[j][k]);
-        //         printf(" ");
-        //     }
-        //     printf("\n");
-        // }
-        // render(&stanje);
-        // SDL_Delay(100);
 
         int karte2[4][8];
         for (int j = 0; j < 2000; ++j) {
             memcpy(karte2, karte, 4*8*sizeof(int));
-            // for (int k = 0; k < 4; ++k)
-            //     for (int l = 0; l < 8; ++l)
-            //         karte2[k][l] = karte[k][l];
 
             odigraj_partiju(stanje, karte2);
         }
-        // printf("prodeno %d/1000\n", i+1);
         render(&stanje);
-        // SDL_Delay(1);
     }
     int najbolja = 0;
     double najbolja_win = 0;
