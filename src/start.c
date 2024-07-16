@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "rnd.h"
 #include "core.h"
+#include "popravi.h"
 #include "start.h"
 
 /* kod ucitavanje karte
@@ -63,12 +64,33 @@ struct bela_stanje start(void) {
     scanf("%d", &prvi);
 
     /* biranje aduta */
+    // @TODO:
+    /* podijeli sve karte osim prvih 6 nasumicno
+     * odigraj random partije s adutima po redu i izaberi adut s najvise
+     * pobjeda ili bodova ili nemoj
+     * izaberi adut ako jako povecava win rate il nes
+     * neznam
+     */
     int adut = 0;
-    // if (rnd_int() % 2) {
-    //     adut = rnd_int()%4;
-    //     printf("adut: %c\n", znakovi[adut]);
-    // }
-    // else {
+    char c;
+    int izabran = 0;
+
+    input4:
+    printf("jeli adut izabran? [y/n]: ");
+    scanf("%c", &c);
+    if (c == 'y') {
+        izabran = 1;
+    }
+    else if (c != 'n') {
+        printf("moras napisat y ili n\n");
+        goto input4;
+    }
+
+    if (!izabran && (rnd_int() % 2 || prvi == 1)) {
+        adut = rnd_int()%4;
+        printf("adut: %c\n", znakovi[adut]);
+    }
+    else {
     input2:
         printf("dalje\nadut: ");
         char c;
@@ -86,7 +108,7 @@ struct bela_stanje start(void) {
             printf("kriva boja\n");
             goto input2;
         }
-    // }
+    }
 
     /* talon */
     for (int i = 6; i < 8; ++i) {
@@ -125,6 +147,34 @@ struct bela_stanje start(void) {
         for (int j = 0; j < 4; ++j)
             stanje.karte[j][moje_karte[i]] = nema;
         stanje.karte[0][moje_karte[i]] = ima;
+    }
+
+    /* zvanja */
+    // @TODO: moja zvanja
+    printf("zvanja:\n");
+    for (int i = 1; i < 4; ++i) {
+        char c = ' ';
+
+        input3:
+        printf("igrac %d: [y/n]: ", i);
+        scanf("%c", &c);
+        if (c == 'y') {
+            int n = 0;
+            printf("broj karata: ");
+            scanf("%d", &n);
+            for (int j = 0; j < n; ++j) {
+                printf("karta %d: ", j+1);
+                int karta = ucitaj_kartu();
+                for (int k = 0; k < 4; ++k)
+                    stanje.karte[k][karta] = nema;
+                stanje.karte[i][karta] = ima;
+                popravi(&stanje);
+            }
+        }
+        else if (c != 'n') {
+            printf("moras upisat y ili n\n");
+            goto input3;
+        }
     }
 
     return stanje;

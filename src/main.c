@@ -11,7 +11,6 @@
 
 int main(void) {
     int karta;
-    // @TODO: pretvori ovo u O(1) (makni)
     rnd_init();
     render_init();
     struct bela_stanje s = start();
