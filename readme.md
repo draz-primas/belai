@@ -21,6 +21,17 @@ K - kralj
 A - as  
 slova mogu biti mala ili velika
 
+## kompajliranje
+
+trebas imat SDL2 i SDL2_image
+
+```bash
+git clone https://github.com/draz-primas/belai.git
+cd belai
+make init
+make release
+```
+
 ## TODO:
 * [x] biranje najbolje karte
 * [ ] biranje najboljeg aduta
