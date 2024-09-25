@@ -11,6 +11,9 @@
 #include "popravi.h"
 #include "render.h"
 
+static int konfiguracija = 500;
+static int igara = 500;
+
 extern int bacili[4];
 
 struct prazne {
@@ -140,7 +143,7 @@ int izaberi_kartu(struct bela_stanje *s) {
         bod[i] = 0;
         odigrano[i] = 0;
     }
-    for (int i = 0; i < 2000; ++i) {
+    for (int i = 0; i < konfiguracija; ++i) {
         struct bela_stanje stanje = podijeli_karte(s);
         int karte[4][8];
         for (int j = 0; j < 4; ++j) {
@@ -164,7 +167,7 @@ int izaberi_kartu(struct bela_stanje *s) {
         }
 
         int karte2[4][8];
-        for (int j = 0; j < 2000; ++j) {
+        for (int j = 0; j < igara; ++j) {
             memcpy(karte2, karte, 4*8*sizeof(int));
 
             odigraj_partiju(stanje, karte2);

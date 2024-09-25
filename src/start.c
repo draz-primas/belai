@@ -64,8 +64,8 @@ struct bela_stanje start(void) {
     scanf("%d", &prvi);
 
     /* biranje aduta */
-    // @TODO:
-    /* podijeli sve karte osim prvih 6 nasumicno
+    /* @TODO:
+     * podijeli sve karte osim prvih 6 nasumicno
      * odigraj random partije s adutima po redu i izaberi adut s najvise
      * pobjeda ili bodova ili nemoj
      * izaberi adut ako jako povecava win rate il nes
@@ -87,6 +87,7 @@ struct bela_stanje start(void) {
     }
 
     if (!izabran && (rnd_int() % 2 || prvi == 1)) {
+        // @TODO: biraj adut koji nije random
         adut = rnd_int()%4;
         printf("adut: %c\n", znakovi[adut]);
     }

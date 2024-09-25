@@ -10,11 +10,12 @@
 #include "popravi.h"
 
 int main(void) {
-    int karta;
     rnd_init();
     render_init();
     struct bela_stanje s = start();
     render(&s);
+    int karta;
+
 for (s.runda = 0; s.runda < 8; ++s.runda) {
     s.sijeceno = 0;
     s.baceno = 0;
@@ -22,9 +23,11 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
     s.najjaca = -1;
     s.na_redu = s.prvi;
     for (int i = 0; i < 4; ++i) s.bacili[i] = 0;
+
     for (int i = 0; i < 4; ++i) {
         s.bacili[s.na_redu] = 1;
         render(&s);
+
         if (s.na_redu == 0) {
             clock_t start = clock();
             karta = izaberi_kartu(&s);
@@ -39,6 +42,7 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
             printf("karta koju je bacio igrac %d: ", s.na_redu);
             karta = ucitaj_kartu();
         }
+
         int boja = karta/8;
         s.stih[i] = karta;
         int prva_boja = s.stih[0]/8;
@@ -48,6 +52,8 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
         }
         for (int j = 0; j < 4; ++j)
             s.karte[j][karta] = nema;
+
+        /* odavdje ne razumjem bas sto se dogada ali mislim da radi */
 
         // @TODO: sto ako je prva
         if (boja != prva_boja && boja != s.adut) {

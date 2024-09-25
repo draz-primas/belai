@@ -1,6 +1,6 @@
 *.bin
 *.exe
 token.txt
-# data/*
+data/*
 belai
 build/*
