@@ -1,9 +1,12 @@
+#include "render.h"
+#include "core.h"
+
+#ifdef RENDER
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
-#include "render.h"
-#include "core.h"
 
 #define WIDTH 1000
 #define HEIGHT 500
@@ -134,3 +137,11 @@ void render(struct bela_stanje *stanje) {
     }
     SDL_RenderPresent(ren);
 }
+
+/* ifndef RENDER */
+#else
+void render_init(void){}
+void render(struct bela_stanje *stanje){(void)stanje;}
+void render_deinit(void){}
+
+#endif

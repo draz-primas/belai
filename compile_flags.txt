@@ -2,7 +2,5 @@
 -Wextra
 -Wpedantic
 -Iinclude
--lm
--lpthread
 -lSDL2
 -lSDL2_image

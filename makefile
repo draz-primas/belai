@@ -1,4 +1,4 @@
-flagslink   := -lm -lpthread -lSDL2 -lSDL2_image
+flagslink   := 
 flagsbuild  := -Wall -Wextra -Wpedantic -Iinclude
 source_dirs := src
 objects := $(patsubst %.c, build/%.o, \
