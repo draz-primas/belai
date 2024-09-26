@@ -1,4 +1,4 @@
-flagslink   := -lm -lpthread -lSDL2 -lSDL2_image
+flagslink   := 
 flagsbuild  := -Wall -Wextra -Wpedantic -Iinclude
 source_dirs := src
 objects := $(patsubst %.c, build/%.o, \
@@ -7,6 +7,9 @@ CC := cc
 TARGET := belai
 
 .PHONY: all release debug clean export-compile-flags init
+
+grafika:
+	make clean release flagsbuild="-Iinclude -DRENDER" flagslink="-lSDL2 -lSDL2_image"
 
 all: $(objects)
 	$(CC) $(objects) -o $(TARGET) $(flagslink) && ./$(TARGET)
@@ -37,3 +40,4 @@ export-compile-flags:
 init:
 	mkdir -p build
 	mkdir -p $(foreach dir, $(source_dirs), build/$(dir))
+	mkdir -p $(foreach dir, $(source_dirs), $(dir))

@@ -23,13 +23,15 @@ slova mogu biti mala ili velika
 
 ## kompajliranje
 
-trebas imat SDL2 i SDL2_image
+trebas imat SDL2 i SDL2_image za grafiku (pokazuje sta radi graficki)
 
 ```bash
 git clone https://github.com/draz-primas/belai.git
 cd belai
 make init
-make release
+make clean release # bez grafike
+make clean grafika # ako zelis grafiku
+./belai # pokreni
 ```
 
 ## TODO:
