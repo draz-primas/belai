@@ -46,6 +46,11 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
         int boja = karta/8;
         s.stih[i] = karta;
         int prva_boja = s.stih[0]/8;
+
+        if (s.karte[s.na_redu][karta] == nema) {
+            printf("auzmes\n");
+        }
+
         if (s.baceno == 0) {
             s.sljedeci_na_redu = s.na_redu;
             s.najjaca = karta;
