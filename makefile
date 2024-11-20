@@ -8,11 +8,12 @@ TARGET := belai
 
 .PHONY: all release debug clean export-compile-flags init
 
+all: $(objects)
+	$(CC) $(objects) -o $(TARGET) $(flagslink) && ./$(TARGET)
+
 grafika:
 	make clean release flagsbuild="-Iinclude -DRENDER" flagslink="-lSDL2 -lSDL2_image"
 
-all: $(objects)
-	$(CC) $(objects) -o $(TARGET) $(flagslink) && ./$(TARGET)
 
 release: $(patsubst %.o, %-O3.o, $(objects))
 	$(CC) $(patsubst %.o, %-O3.o, $(objects)) -o $(TARGET) -O3 $(flagslink)
