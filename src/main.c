@@ -9,7 +9,15 @@
 #include "ai.h"
 #include "popravi.h"
 
+FILE *junk_out;
+
 int main(void) {
+    #ifdef JUNK_OUT
+        junk_out = fopen(JUNK_OUT, "w");
+    #else
+        junk_out = stdout;
+    #endif
+
     rnd_init();
     render_init();
     struct bela_stanje s = start();
@@ -31,15 +39,15 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
         if (s.na_redu == 0) {
             clock_t start = clock();
             karta = izaberi_kartu(&s);
-            printf("trebalo vremena: %f\n", ((double)(clock()-start))/CLOCKS_PER_SEC);
-            printf("izabrano:\n");
+            fprintf(junk_out, "trebalo vremena: %f\n", ((double)(clock()-start))/CLOCKS_PER_SEC);
+            fprintf(junk_out, "izabrano:\n");
             printaj_kartu(karta);
             printf("\n");
             sleep(1);
             render(&s);
         }
         else {
-            printf("karta koju je bacio igrac %d: ", s.na_redu);
+            fprintf(junk_out, "karta koju je bacio igrac %d: ", s.na_redu);
             karta = ucitaj_kartu();
         }
 

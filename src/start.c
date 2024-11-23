@@ -4,6 +4,8 @@
 #include "popravi.h"
 #include "start.h"
 
+extern FILE *junk_out;
+
 /* kod ucitavanje karte
  * T - 0 - tref zir
  * K - 1 - karo zvono
@@ -35,7 +37,7 @@ input1:
         case 'p':
         case 'P': t1 = 3; break;
         default:
-        printf("kriva boja\n");
+        fprintf(junk_out, "kriva boja\n");
         goto input1;
     }
     switch (znak) {
@@ -53,7 +55,7 @@ input1:
         case 'a':
         case 'A': t2 = 7; break;
         default:
-        printf("krivi znak\n");
+        fprintf(junk_out, "krivi znak\n");
         goto input1;
     }
     return t1*8 + t2;
@@ -63,12 +65,12 @@ struct bela_stanje start(void) {
     int moje_karte[8] = {0};
 
     for (int i = 0; i < 6; ++i) {
-        printf("karta %d: ", i+1);
+        fprintf(junk_out, "karta %d: ", i+1);
         moje_karte[i] = ucitaj_kartu();
     }
 
     int prvi = 0;
-    printf("tko je prvi (ako sam ja 0)? ");
+    fprintf(junk_out, "tko je prvi (ako sam ja 0)? ");
     scanf("%d", &prvi);
 
     /* biranje aduta */
@@ -84,13 +86,13 @@ struct bela_stanje start(void) {
     int izabran = 0;
 
     input4:
-    printf("jeli adut izabran? [y/n]: ");
+    fprintf(junk_out, "jeli adut izabran? [y/n]: ");
     c = scanchar();
     if (c == 'y') {
         izabran = 1;
     }
     else if (c != 'n') {
-        printf("moras napisat y ili n\n");
+        fprintf(junk_out, "moras napisat y ili n\n");
         goto input4;
     }
 
@@ -101,7 +103,7 @@ struct bela_stanje start(void) {
     }
     else {
     input2:
-        printf("dalje\nadut: ");
+        fprintf(junk_out, "dalje\nadut: ");
         char c;
         c = scanchar();
         switch (c) {
@@ -114,14 +116,14 @@ struct bela_stanje start(void) {
             case 'p':
             case 'P': adut = 3; break;
             default:
-            printf("kriva boja\n");
+            fprintf(junk_out, "kriva boja\n");
             goto input2;
         }
     }
 
     /* talon */
     for (int i = 6; i < 8; ++i) {
-        printf("karta %d: ", i+1);
+        fprintf(junk_out, "karta %d: ", i+1);
         moje_karte[i] = ucitaj_kartu();
     }
 
@@ -160,19 +162,19 @@ struct bela_stanje start(void) {
 
     /* zvanja */
     // @TODO: moja zvanja
-    printf("zvanja:\n");
+    fprintf(junk_out, "zvanja:\n");
     for (int i = 1; i < 4; ++i) {
         char c = ' ';
 
         input3:
-        printf("igrac %d: [y/n]: ", i);
+        fprintf(junk_out, "igrac %d: [y/n]: ", i);
         c = scanchar();
         if (c == 'y') {
             int n = 0;
-            printf("broj karata: ");
+            fprintf(junk_out, "broj karata: ");
             scanf("%d", &n);
             for (int j = 0; j < n; ++j) {
-                printf("karta %d: ", j+1);
+                fprintf(junk_out, "karta %d: ", j+1);
                 int karta = ucitaj_kartu();
                 for (int k = 0; k < 4; ++k)
                     stanje.karte[k][karta] = nema;
@@ -181,7 +183,7 @@ struct bela_stanje start(void) {
             }
         }
         else if (c != 'n') {
-            printf("moras upisat y ili n\n");
+            fprintf(junk_out, "moras upisat y ili n\n");
             goto input3;
         }
     }

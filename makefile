@@ -6,14 +6,17 @@ $(foreach dir, $(source_dirs), $(wildcard $(dir)/*.c)))
 CC := cc
 TARGET := belai
 
-.PHONY: all release debug clean export-compile-flags init
+.PHONY: all release debug clean export-compile-flags init grafike junkless
 
 all: $(objects)
 	$(CC) $(objects) -o $(TARGET) $(flagslink) && ./$(TARGET)
 
 grafika:
-	make clean release flagsbuild="-Iinclude -DRENDER" flagslink="-lSDL2 -lSDL2_image"
+	$(eval flagsbuild += -DRENDER)
+	$(eval flagslink  += -lSDL2 -lSDL2_image)
 
+junkless:
+	$(eval flagsbuild += -DJUNK_OUT=\"/dev/null\")
 
 release: $(patsubst %.o, %-O3.o, $(objects))
 	$(CC) $(patsubst %.o, %-O3.o, $(objects)) -o $(TARGET) -O3 $(flagslink)

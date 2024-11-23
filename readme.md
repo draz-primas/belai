@@ -30,7 +30,7 @@ git clone https://github.com/draz-primas/belai.git
 cd belai
 make init
 make clean release # bez grafike
-make clean grafika # ako zelis grafiku
+make clean grafika release # ako zelis grafiku
 ./belai # pokreni
 ```
 

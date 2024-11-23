@@ -15,6 +15,7 @@ static int konfiguracija = 500;
 static int igara = 500;
 
 extern int bacili[4];
+extern FILE *junk_out;
 
 struct prazne {
     int ptr[32];
@@ -184,7 +185,7 @@ int izaberi_kartu(struct bela_stanje *s) {
     double najbolja_odigrano = 1;
     for (int i = 0; i < 8; ++i) {
         if (odigrano[i]) {
-            printf("[%d]: avg bod: %.1f, win rate: %.1f%%\n",
+            fprintf(junk_out, "[%d]: avg bod: %.1f, win rate: %.1f%%\n",
                    i, bod[i]/odigrano[i], wins[i]*100/odigrano[i]);
             if (bod[i]/odigrano[i] > najbolja_bod/najbolja_odigrano) {
                 najbolja = i;
