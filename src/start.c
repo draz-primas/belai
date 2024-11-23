@@ -11,12 +11,20 @@
  * P - 3 - pik list
  */
 
+static char string[16];
+ static char scanchar(void) {
+    scanf("%s", string);
+    return string[0];
+ }
+
 int ucitaj_kartu(void) {
     char boja;
     char znak;
     int t1, t2;
 input1:
-    scanf(" %c%c", &boja, &znak);
+    scanf("%s", string);
+    boja = string[0];
+    znak = string[1];
     switch (boja) {
         case 't':
         case 'T': t1 = 0; break;
@@ -77,7 +85,7 @@ struct bela_stanje start(void) {
 
     input4:
     printf("jeli adut izabran? [y/n]: ");
-    scanf("%c", &c);
+    c = scanchar();
     if (c == 'y') {
         izabran = 1;
     }
@@ -95,7 +103,7 @@ struct bela_stanje start(void) {
     input2:
         printf("dalje\nadut: ");
         char c;
-        scanf("%c", &c);
+        c = scanchar();
         switch (c) {
             case 't':
             case 'T': adut = 0; break;
@@ -158,7 +166,7 @@ struct bela_stanje start(void) {
 
         input3:
         printf("igrac %d: [y/n]: ", i);
-        scanf("%c", &c);
+        c = scanchar();
         if (c == 'y') {
             int n = 0;
             printf("broj karata: ");

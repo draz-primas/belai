@@ -83,6 +83,10 @@ static void odigraj_partiju(struct bela_stanje s, int karte[4][8]) {
                 }
             }
 
+            if (n == 0) {
+                printf("auzmes\n");
+                exit(0);
+            }
             int rndi = ptrs[rnd_int()%n];
             karta = karte[s.na_redu][rndi];
             karte[s.na_redu][rndi] = -8;
