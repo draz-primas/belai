@@ -94,5 +94,5 @@ void printaj_kartu(int karta) {
     char boja = znakovi[karta/8];
     char boje[] = {'7','8','9','X','J','Q','K','A'};
     char znak = boje[karta%8];
-    printf("%c%c", boja, znak);
+    printf("%c%c\n", boja, znak);
 }

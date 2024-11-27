@@ -42,14 +42,20 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
             fprintf(junk_out, "trebalo vremena: %f\n", ((double)(clock()-start))/CLOCKS_PER_SEC);
             fprintf(junk_out, "izabrano:\n");
             printaj_kartu(karta);
-            printf("\n");
-            sleep(1);
-            render(&s);
+            #ifdef RENDER
+                sleep(1);
+                render(&s);
+            #endif
         }
         else {
-            fprintf(junk_out, "karta koju je bacio igrac %d: ", s.na_redu);
+            if (junk_out == stdout)
+                fprintf(junk_out, "karta koju je bacio igrac %d: ", s.na_redu);
+            else
+                printf("%d\n", s.na_redu);
+            fflush(stdout);
             karta = ucitaj_kartu();
         }
+        fflush(stdout);
 
         int boja = karta/8;
         s.stih[i] = karta;
