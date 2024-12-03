@@ -3,6 +3,6 @@
 
 #include "core.h"
 
-extern int izaberi_kartu(struct bela_stanje *s);
+extern int izaberi_kartu(struct bela_stanje *s, int biramaduta, int moram_zvat);
 
 #endif

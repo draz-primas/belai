@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "ai.h"
 #include "rnd.h"
 #include "core.h"
 #include "popravi.h"
@@ -14,10 +15,10 @@ extern FILE *junk_out;
  */
 
 static char string[16];
- static char scanchar(void) {
+static char scanchar(void) {
     scanf("%s", string);
     return string[0];
- }
+}
 
 int ucitaj_kartu(void) {
     char boja;
@@ -61,17 +62,41 @@ input1:
     return t1*8 + t2;
 }
 
+void ucitaj_moju_kartu(int i, struct bela_stanje *s) {
+    int karta = ucitaj_kartu();
+    s->moje_karte[i] = karta;
+    for (int j = 0; j < 4; ++j)
+        s->karte[j][s->moje_karte[i]] = nema;
+    s->karte[0][s->moje_karte[i]] = ima;
+}
+
 struct bela_stanje start(void) {
     int moje_karte[8] = {0};
+    struct bela_stanje s = {
+        .moje_karte = {0},
+        .karte = {{0}},
+        .baceno = 0,
+        .stih = {0},
+        .moze = {0},
+        .sijeceno = 0,
+        .najjaca = -1,
+        .bodovi = {0},
+        .runda = 0,
+        .bacili = {0},
+    };
+    for (int i = 0; i < 4; ++i)
+        for (int j = 0; j < 32; ++j)
+            s.karte[i][j] = mozda;
 
     for (int i = 0; i < 6; ++i) {
         fprintf(junk_out, "karta %d: ", i+1);
-        moje_karte[i] = ucitaj_kartu();
+        ucitaj_moju_kartu(i, &s);
     }
 
-    int prvi = 0;
     fprintf(junk_out, "tko je prvi (ako sam ja 0)? ");
-    scanf("%d", &prvi);
+    scanf("%d", &s.prvi);
+    s.sljedeci_na_redu = s.prvi;
+    s.na_redu = s.prvi;
 
     /* biranje aduta */
     /* @TODO:
@@ -81,7 +106,7 @@ struct bela_stanje start(void) {
      * izaberi adut ako jako povecava win rate il nes
      * neznam
      */
-    int adut = 0;
+    s.adut = 0;
     char c;
     int izabran = 0;
 
@@ -96,25 +121,29 @@ struct bela_stanje start(void) {
         goto input4;
     }
 
-    if (!izabran && (rnd_int() % 2 || prvi == 1)) {
+    if (!izabran) {
         // @TODO: biraj adut koji nije random
-        adut = rnd_int()%4;
-        printf("adut: %c\n", znakovi[adut]);
+        s.adut = izaberi_kartu(&s, 1, s.prvi == 1);
+        if (s.adut == -1) goto input2;
+        printf("%c\n", znakovi[s.adut]);
+        fflush(stdout);
     }
     else {
     input2:
-        fprintf(junk_out, "dalje\nadut: ");
+        printf("dalje\n");
+        fflush(stdout);
+        fprintf(junk_out, "adut: ");
         char c;
         c = scanchar();
         switch (c) {
             case 't':
-            case 'T': adut = 0; break;
+            case 'T': s.adut = 0; break;
             case 'k':
-            case 'K': adut = 1; break;
+            case 'K': s.adut = 1; break;
             case 'h':
-            case 'H': adut = 2; break;
+            case 'H': s.adut = 2; break;
             case 'p':
-            case 'P': adut = 3; break;
+            case 'P': s.adut = 3; break;
             default:
             fprintf(junk_out, "kriva boja\n");
             goto input2;
@@ -124,41 +153,12 @@ struct bela_stanje start(void) {
     /* talon */
     for (int i = 6; i < 8; ++i) {
         fprintf(junk_out, "karta %d: ", i+1);
-        moje_karte[i] = ucitaj_kartu();
+        ucitaj_moju_kartu(i, &s);
     }
 
-    struct bela_stanje stanje = {
-        .moje_karte = {0},
-        .karte = {{0}},
-        .moze = {0},
-        .adut = adut,
-        .baceno = 0,
-        .na_redu = prvi,
-        .sljedeci_na_redu = prvi,
-        .stih = {0},
-        .prvi = prvi,
-        .sijeceno = 0,
-        .najjaca = -1,
-        .bodovi = {0},
-        .runda = 0,
-        .bacili = {0},
-    };
-
-    for (int i = 1; i < 4; ++i)
-        for (int j = 0; j < 32; ++j)
-            stanje.karte[i][j] = mozda;
-
-    /* moje karte */
-    /* 0 sam ja */
-    for (int i = 0; i < 8; ++i)
-        stanje.moje_karte[i] = moje_karte[i];
     for (int i = 0; i < 32; ++i)
-        stanje.karte[0][i] = nema;
-    for (int i = 0; i < 8; ++i) {
-        for (int j = 0; j < 4; ++j)
-            stanje.karte[j][moje_karte[i]] = nema;
-        stanje.karte[0][moje_karte[i]] = ima;
-    }
+        if (s.karte[0][i] == mozda)
+            s.karte[0][i] = nema;
 
     /* zvanja */
     // @TODO: moja zvanja
@@ -177,9 +177,9 @@ struct bela_stanje start(void) {
                 fprintf(junk_out, "karta %d: ", j+1);
                 int karta = ucitaj_kartu();
                 for (int k = 0; k < 4; ++k)
-                    stanje.karte[k][karta] = nema;
-                stanje.karte[i][karta] = ima;
-                popravi(&stanje);
+                    s.karte[k][karta] = nema;
+                s.karte[i][karta] = ima;
+                popravi(&s);
             }
         }
         else if (c != 'n') {
@@ -188,5 +188,5 @@ struct bela_stanje start(void) {
         }
     }
 
-    return stanje;
+    return s;
 }

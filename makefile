@@ -6,7 +6,7 @@ $(foreach dir, $(source_dirs), $(wildcard $(dir)/*.c)))
 CC := cc
 TARGET := belai
 
-.PHONY: all release debug clean export-compile-flags init grafike junkless
+.PHONY: all release debug clean export-compile-flags init grafika junkless
 
 all: $(objects)
 	$(CC) $(objects) -o $(TARGET) $(flagslink) && ./$(TARGET)

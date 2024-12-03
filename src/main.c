@@ -38,7 +38,7 @@ for (s.runda = 0; s.runda < 8; ++s.runda) {
 
         if (s.na_redu == 0) {
             clock_t start = clock();
-            karta = izaberi_kartu(&s);
+            karta = izaberi_kartu(&s, 0, 0);
             fprintf(junk_out, "trebalo vremena: %f\n", ((double)(clock()-start))/CLOCKS_PER_SEC);
             fprintf(junk_out, "izabrano:\n");
             printaj_kartu(karta);

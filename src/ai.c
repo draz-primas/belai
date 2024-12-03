@@ -25,6 +25,9 @@ struct prazne {
 double wins[8];
 double bod[8];
 int odigrano[8];
+double wins_adut[4];
+double bod_adut[4];
+int odigrano_adut[4];
 
 static struct bela_stanje podijeli_karte(struct bela_stanje *s) {
     static int ptr[32];
@@ -34,8 +37,10 @@ static struct bela_stanje podijeli_karte(struct bela_stanje *s) {
      * kreni od igraca 1, daj mu random kartu, popravi tablicu
      * ponavljaj dok nema dovoljno karata
      * ponovi za svakog igraca
+
+     * ispravak: krece od sebe zbog biranja aduta
      */
-    for (int igrac = 1; igrac < 4; ++igrac) {
+    for (int igrac = 0; igrac < 4; ++igrac) {
         while (1) {
             n = 0;
             for (int i = 0; i < 32; ++i) {
@@ -137,17 +142,25 @@ static void odigraj_partiju(struct bela_stanje s, int karte[4][8]) {
     bod[prva_karta] += s.bodovi[0];
     wins[prva_karta] += s.bodovi[0] > s.bodovi[1];
     odigrano[prva_karta]++;
+    bod_adut[s.adut] += s.bodovi[0];
+    wins_adut[s.adut] += s.bodovi[0] > s.bodovi[1];
+    odigrano_adut[s.adut]++;
 }
 
-int izaberi_kartu(struct bela_stanje *s) {
+int izaberi_kartu(struct bela_stanje *s, int biramaduta, int moram_zvat) {
     int karta = 0;
-    moze_se_bacit(s, NULL);
 
     for (int i = 0; i < 8; ++i) {
         wins[i] = 0;
         bod[i] = 0;
         odigrano[i] = 0;
     }
+    for (int i = 0; i < 4; ++i) {
+        wins_adut[i] = 0;
+        bod_adut[i] = 0;
+        odigrano_adut[i] = 0;
+    }
+
     for (int i = 0; i < konfiguracija; ++i) {
         struct bela_stanje stanje = podijeli_karte(s);
         int karte[4][8];
@@ -158,8 +171,14 @@ int izaberi_kartu(struct bela_stanje *s) {
         }
 
         int br_karata[4] = {0};
+        if (biramaduta) br_karata[0] = 6;
         for (int j = 0; j < 32; ++j) {
             /* prvi mora bit po redu kak je unesen */
+            if (stanje.karte[0][j] == ima &&
+                stanje.moje_karte[br_karata[0]] == -8) {
+                stanje.moje_karte[br_karata[0]++] = j;
+                continue;
+            }
             for (int k = 1; k < 4; ++k) {
                 if (stanje.karte[k][j] == ima) {
                     karte[k][br_karata[k]++] = j;
@@ -174,6 +193,7 @@ int izaberi_kartu(struct bela_stanje *s) {
         int karte2[4][8];
         for (int j = 0; j < igara; ++j) {
             memcpy(karte2, karte, 4*8*sizeof(int));
+            if (biramaduta) stanje.adut = rnd_int()%4;
 
             odigraj_partiju(stanje, karte2);
         }
@@ -183,6 +203,26 @@ int izaberi_kartu(struct bela_stanje *s) {
     double najbolja_win = 0;
     double najbolja_bod = 0;
     double najbolja_odigrano = 1;
+
+    if (biramaduta) {
+        for (int i = 0; i < 4; ++i) {
+            if (odigrano_adut[i]) {
+                fprintf(junk_out, "[%c]: avg bod: %.1f, win rate: %.1f%%\n",
+                    znakovi[i], bod_adut[i]/odigrano_adut[i],
+                    wins_adut[i]*100/odigrano_adut[i]);
+                if (bod_adut[i]/odigrano_adut[i] > najbolja_bod/najbolja_odigrano) {
+                    najbolja = i;
+                    najbolja_win = wins_adut[i];
+                    najbolja_bod = bod_adut[i];
+                    najbolja_odigrano = odigrano_adut[i];
+                }
+            }
+        }
+        /* zovi najboljeg aduta ako je win rate > 50% */
+        if (najbolja_win/najbolja_odigrano > 0.5 || moram_zvat) return najbolja;
+        return -1; /* dalje */
+    }
+
     for (int i = 0; i < 8; ++i) {
         if (odigrano[i]) {
             fprintf(junk_out, "[%d]: avg bod: %.1f, win rate: %.1f%%\n",
