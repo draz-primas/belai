@@ -2,7 +2,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <string.h>
-#include <SDL2/SDL_timer.h>
 #include "ai.h"
 #include "core.h"
 #include "bela.h"
@@ -170,14 +169,15 @@ int izaberi_kartu(struct bela_stanje *s, int biramaduta, int moram_zvat) {
             }
         }
 
-        int br_karata[4] = {0};
-        if (biramaduta) br_karata[0] = 6;
+        int br_karata[4] = {6, 0, 0, 0};
         for (int j = 0; j < 32; ++j) {
             /* prvi mora bit po redu kak je unesen */
-            if (stanje.karte[0][j] == ima &&
-                stanje.moje_karte[br_karata[0]] == -8) {
-                stanje.moje_karte[br_karata[0]++] = j;
-                continue;
+            if (biramaduta) {
+                if (stanje.karte[0][j] == ima &&
+                    stanje.moje_karte[br_karata[0]] == -8) {
+                    stanje.moje_karte[br_karata[0]++] = j;
+                    continue;
+                }
             }
             for (int k = 1; k < 4; ++k) {
                 if (stanje.karte[k][j] == ima) {

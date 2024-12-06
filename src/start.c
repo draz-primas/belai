@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "ai.h"
-#include "rnd.h"
 #include "core.h"
 #include "popravi.h"
 #include "start.h"
@@ -71,7 +70,6 @@ void ucitaj_moju_kartu(int i, struct bela_stanje *s) {
 }
 
 struct bela_stanje start(void) {
-    int moje_karte[8] = {0};
     struct bela_stanje s = {
         .moje_karte = {0},
         .karte = {{0}},

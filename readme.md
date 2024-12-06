@@ -36,7 +36,7 @@ make clean grafika release # ako zelis grafiku
 
 ## TODO:
 * [x] biranje najbolje karte
-* [ ] biranje najboljeg aduta
+* [x] biranje najboljeg aduta
 * [ ] koristi minimax umjesto nasumicnih igri
 * [ ] dovrsi readme
 * [ ] ocisti kod
