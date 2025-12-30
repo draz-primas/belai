@@ -81,4 +81,5 @@ Na kraju se samo pogleda s kojom kartom se osvoji najviše bodova u prosjeku.
 * [ ] koristi minimax umjesto nasumičnih igri
 * [x] dovrši readme
 * [ ] očisti kod
+* [ ] dodaj "emocije"
 

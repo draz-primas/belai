@@ -1,0 +1,110 @@
+\doxysection{Opis datoteke include/core.h}
+\hypertarget{core_8h}{}\label{core_8h}\index{include/core.h@{include/core.h}}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbela__stanje}{bela\+\_\+stanje}}
+\begin{DoxyCompactList}\small\item\em Sadrži sve informacije o stanju partije. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{core_8h_af86f6c5e24a54ea5d5338adeb9bed68f}\label{core_8h_af86f6c5e24a54ea5d5338adeb9bed68f} 
+enum \mbox{\hyperlink{core_8h_af86f6c5e24a54ea5d5338adeb9bed68f}{znak}} \{ \newline
+{\bfseries sedam}
+, {\bfseries osam}
+, {\bfseries devet}
+, {\bfseries deset}
+, \newline
+{\bfseries decko}
+, {\bfseries baba}
+, {\bfseries kralj}
+, {\bfseries as}
+ \}
+\begin{DoxyCompactList}\small\item\em Znak na karti za belu. poredani su po redosljedu za zvanja. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ce}{stanje}} \{ \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d}{nema}}
+, \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad}{ima}}
+, \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7}{mozda}}
+, \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1}{vjerojatno}}
+ \}
+\begin{DoxyCompactList}\small\item\em stanje karte za nekog igrača \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Varijable}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{core_8h_a2b79ea7d3d32a2a63c7fe9acd3b0cc87}{znakovi}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Lista znakova na kartama za belu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{core_8h_ab6c54737a498d3009600963a74b41767}{bodovi}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Koliko bodova donosi koja karta. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{core_8h_ac094a52a7380fde3cb616df11fbd89cd}{bodovi\+\_\+adut}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Broj bodova karte u adutu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{core_8h_doc-enum-members}
+\doxysubsection{Dokumentacija enumeracijskog tipa}
+\Hypertarget{core_8h_ad0d01b5013b726df9e47ca63cec041ce}\index{core.h@{core.h}!stanje@{stanje}}
+\index{stanje@{stanje}!core.h@{core.h}}
+\doxysubsubsection{\texorpdfstring{stanje}{stanje}}
+{\footnotesize\ttfamily \label{core_8h_ad0d01b5013b726df9e47ca63cec041ce} 
+enum \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ce}{stanje}}}
+
+
+
+stanje karte za nekog igrača 
+
+Koristi se u praćenju karata drugih igrača (brojanju karata). \begin{DoxyEnumFields}[2]{Vrijednosti enumeracija}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{nema@{nema}!core.h@{core.h}}\index{core.h@{core.h}!nema@{nema}}}\Hypertarget{core_8h_ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d}\label{core_8h_ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d} 
+nema&igrač sigurno nema kartu \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ima@{ima}!core.h@{core.h}}\index{core.h@{core.h}!ima@{ima}}}\Hypertarget{core_8h_ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad}\label{core_8h_ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad} 
+ima&igrač sigurno ima kartu \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mozda@{mozda}!core.h@{core.h}}\index{core.h@{core.h}!mozda@{mozda}}}\Hypertarget{core_8h_ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7}\label{core_8h_ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7} 
+mozda&ne zna se ima li igrač kartu \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{vjerojatno@{vjerojatno}!core.h@{core.h}}\index{core.h@{core.h}!vjerojatno@{vjerojatno}}}\Hypertarget{core_8h_ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1}\label{core_8h_ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1} 
+vjerojatno&Velika je šansa da igrač ima kartu, ali nije sigurno. Ovo se još ne koristi u kodu. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-var-members}
+\Hypertarget{core_8h_doc-var-members}
+\doxysubsection{Dokumentacija varijable}
+\Hypertarget{core_8h_ab6c54737a498d3009600963a74b41767}\index{core.h@{core.h}!bodovi@{bodovi}}
+\index{bodovi@{bodovi}!core.h@{core.h}}
+\doxysubsubsection{\texorpdfstring{bodovi}{bodovi}}
+{\footnotesize\ttfamily \label{core_8h_ab6c54737a498d3009600963a74b41767} 
+int bodovi\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Koliko bodova donosi koja karta. 
+
+bodovi\mbox{[}i\mbox{]} je broj bodova koji na kraju igre donosi ta karta ako nije u adutu, a i je {\ttfamily enum znak} \Hypertarget{core_8h_ac094a52a7380fde3cb616df11fbd89cd}\index{core.h@{core.h}!bodovi\_adut@{bodovi\_adut}}
+\index{bodovi\_adut@{bodovi\_adut}!core.h@{core.h}}
+\doxysubsubsection{\texorpdfstring{bodovi\_adut}{bodovi\_adut}}
+{\footnotesize\ttfamily \label{core_8h_ac094a52a7380fde3cb616df11fbd89cd} 
+int bodovi\+\_\+adut\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Broj bodova karte u adutu. 
+
+\begin{DoxySeeAlso}{Vidi također}
+\doxylink{core_8h_ab6c54737a498d3009600963a74b41767}{bodovi}\mbox{[}\mbox{]} 
+\end{DoxySeeAlso}
+\Hypertarget{core_8h_a2b79ea7d3d32a2a63c7fe9acd3b0cc87}\index{core.h@{core.h}!znakovi@{znakovi}}
+\index{znakovi@{znakovi}!core.h@{core.h}}
+\doxysubsubsection{\texorpdfstring{znakovi}{znakovi}}
+{\footnotesize\ttfamily \label{core_8h_a2b79ea7d3d32a2a63c7fe9acd3b0cc87} 
+char znakovi\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Lista znakova na kartama za belu. 
+
+znakovi\mbox{[}i\mbox{]} je char koji predstavlja tu boju, npr. znakovi\mbox{[}0\mbox{]} je T (tref). U kodu se za tref koristi 0, karo 1 itd. Po redu\+: tref, karo, herc, pik. U bela bojama\+: žir, zvono/bundeva, srce, list 

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>belai: Izvorni kod datoteke include/bela.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">belai<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">umjetna inteligencija za belu</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generirao Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Traži',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('bela_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Učitavam...</div>
+<div class="SRStatus" id="Searching">Tražim...</div>
+<div class="SRStatus" id="NoMatches">Nema traženih podataka</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">bela.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="bela_8h.html">Dokumenacija za ovu datoteku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef BELA_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define BELA_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="core_8h.html">core.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code hl_function" href="bela_8h.html#aeeb719e21d8c90e4236c73e66da8297a">jaca</a>(<span class="keywordtype">int</span> ova, <span class="keywordtype">int</span> od_ove, <span class="keywordtype">int</span> adut);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="bela_8h.html#a48bfb2d494a9cec04beef734d1623061">moze_se_bacit</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structbela__stanje.html">bela_stanje</a> *s, <span class="keywordtype">int</span> kartee[8]);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="bela_8h.html#a885f7db73b6a2cb4f8acde26789119da">izbroji_stih</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structbela__stanje.html">bela_stanje</a> *s);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="bela_8h.html#a67733674fb932486cd656d4f27e97157">printaj_kartu</a>(<span class="keywordtype">int</span> karta);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="abela_8h_html_a48bfb2d494a9cec04beef734d1623061"><div class="ttname"><a href="bela_8h.html#a48bfb2d494a9cec04beef734d1623061">moze_se_bacit</a></div><div class="ttdeci">void moze_se_bacit(struct bela_stanje *s, int kartee[8])</div><div class="ttdoc">Gleda koje karte se smiju bacit s obzirom na štih.</div><div class="ttdef"><b>Definition</b> bela.c:35</div></div>
+<div class="ttc" id="abela_8h_html_a67733674fb932486cd656d4f27e97157"><div class="ttname"><a href="bela_8h.html#a67733674fb932486cd656d4f27e97157">printaj_kartu</a></div><div class="ttdeci">void printaj_kartu(int karta)</div><div class="ttdoc">Printa kartu.</div><div class="ttdef"><b>Definition</b> bela.c:112</div></div>
+<div class="ttc" id="abela_8h_html_a885f7db73b6a2cb4f8acde26789119da"><div class="ttname"><a href="bela_8h.html#a885f7db73b6a2cb4f8acde26789119da">izbroji_stih</a></div><div class="ttdeci">void izbroji_stih(struct bela_stanje *s)</div><div class="ttdoc">Broji bodove u štihu.</div><div class="ttdef"><b>Definition</b> bela.c:102</div></div>
+<div class="ttc" id="abela_8h_html_aeeb719e21d8c90e4236c73e66da8297a"><div class="ttname"><a href="bela_8h.html#aeeb719e21d8c90e4236c73e66da8297a">jaca</a></div><div class="ttdeci">int jaca(int ova, int od_ove, int adut)</div><div class="ttdoc">Uspoređuje jačinu dvaju karata.</div><div class="ttdef"><b>Definition</b> bela.c:28</div></div>
+<div class="ttc" id="acore_8h_html"><div class="ttname"><a href="core_8h.html">core.h</a></div></div>
+<div class="ttc" id="astructbela__stanje_html"><div class="ttname"><a href="structbela__stanje.html">bela_stanje</a></div><div class="ttdoc">Sadrži sve informacije o stanju partije.</div><div class="ttdef"><b>Definition</b> core.h:60</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="bela_8h.html">bela.h</a></li>
+    <li class="footer">Generirao <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

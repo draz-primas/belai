@@ -1,4 +1,4 @@
-#ifndef RAND_H_234634
+#ifndef RAND_H_234634 /* brojevi za svaki slučaj */
 #define RAND_H_234634
 
 #include <stdlib.h>

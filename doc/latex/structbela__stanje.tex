@@ -1,0 +1,93 @@
+\doxysection{Opis strukture bela\+\_\+stanje}
+\hypertarget{structbela__stanje}{}\label{structbela__stanje}\index{bela\_stanje@{bela\_stanje}}
+
+
+Sadrži sve informacije o stanju partije.  
+
+
+
+
+{\ttfamily \#include $<$core.\+h$>$}
+
+\doxysubsubsection*{Public atributi}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ce}{stanje}} \mbox{\hyperlink{structbela__stanje_ab633f79ec1f9ed9895a55d2233056f5c}{karte}} \mbox{[}4\mbox{]}\mbox{[}32\mbox{]}
+\begin{DoxyCompactList}\small\item\em Stanje za svakog igrača za svaku kartu (4 igrača, 32 karte) \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_a5ea666db1d77bbd08b6c4ae15f620464}\label{structbela__stanje_a5ea666db1d77bbd08b6c4ae15f620464} 
+int {\bfseries moje\+\_\+karte} \mbox{[}8\mbox{]}
+\begin{DoxyCompactList}\small\item\em Karte koje ai ima. \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_a3657758e752911b80c504b9838e7332a}\label{structbela__stanje_a3657758e752911b80c504b9838e7332a} 
+int {\bfseries moze} \mbox{[}8\mbox{]}
+\begin{DoxyCompactList}\small\item\em koje karte se mogu bacit (koristi se za funkciju moze\+\_\+se\+\_\+bacit) \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_a80121d32c62dcfcc8785807e19a3ea49}\label{structbela__stanje_a80121d32c62dcfcc8785807e19a3ea49} 
+int {\bfseries stih} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em karte na stolu \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_a0cd9320191f4469bc1018bc0e6ace51e}\label{structbela__stanje_a0cd9320191f4469bc1018bc0e6ace51e} 
+int {\bfseries prvi}
+\begin{DoxyCompactList}\small\item\em indeks igrača koji je prvi na redu \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_aa247eea89cb9bd267bb7f4f865b73af1}\label{structbela__stanje_aa247eea89cb9bd267bb7f4f865b73af1} 
+int {\bfseries na\+\_\+redu}
+\begin{DoxyCompactList}\small\item\em indeks igrača koji je na redu \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_aa4feb4bcc276d7526b2c21e6c41e7e3d}\label{structbela__stanje_aa4feb4bcc276d7526b2c21e6c41e7e3d} 
+int {\bfseries sljedeci\+\_\+na\+\_\+redu}
+\begin{DoxyCompactList}\small\item\em indeks igrača koji je sljedeći na redu \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_af012e93c80ec919fdb525151ca924ade}\label{structbela__stanje_af012e93c80ec919fdb525151ca924ade} 
+int {\bfseries baceno}
+\begin{DoxyCompactList}\small\item\em baceno = na\+\_\+redu -\/ prvi \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structbela__stanje_a76525005a4b947c1d66e8d5dacaba7f8}{adut}}
+\begin{DoxyCompactList}\small\item\em Boja aduta. \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_a91c5d889859f16988fed53f255fb7c2e}\label{structbela__stanje_a91c5d889859f16988fed53f255fb7c2e} 
+int {\bfseries sijeceno}
+\begin{DoxyCompactList}\small\item\em 1 ako je bačen adut, a prva karta nije adut, inače 0 \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_aadf86156388db65031deb6f5bd86d63e}\label{structbela__stanje_aadf86156388db65031deb6f5bd86d63e} 
+int {\bfseries najjaca}
+\begin{DoxyCompactList}\small\item\em najjača karta, koristi se interno u nekim funkcijama \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_a73930c45d6e375e907f428d4add6fb29}\label{structbela__stanje_a73930c45d6e375e907f428d4add6fb29} 
+int {\bfseries bodovi} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em broj bodova\+: \mbox{[}0\mbox{]}\+: mi (ai + netko), \mbox{[}1\mbox{]}\+: vi (druga 2 igrača) \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_a10fb2bba492ae08cca7aa085ffab518a}\label{structbela__stanje_a10fb2bba492ae08cca7aa085ffab518a} 
+int {\bfseries runda}
+\begin{DoxyCompactList}\small\item\em brojač za runde (1 runda = pokupljen 1 štih) \end{DoxyCompactList}\item 
+\Hypertarget{structbela__stanje_ad83788154eb437690aa26dd1238bc3db}\label{structbela__stanje_ad83788154eb437690aa26dd1238bc3db} 
+int {\bfseries bacili} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em za svakog igrača prati je li bacio kartu u ovoj rundi \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detaljno objašnjenje}
+Sadrži sve informacije o stanju partije. 
+
+\label{doc-variable-members}
+\Hypertarget{structbela__stanje_doc-variable-members}
+\doxysubsection{Documentacija varijabli}
+\Hypertarget{structbela__stanje_a76525005a4b947c1d66e8d5dacaba7f8}\index{bela\_stanje@{bela\_stanje}!adut@{adut}}
+\index{adut@{adut}!bela\_stanje@{bela\_stanje}}
+\doxysubsubsection{\texorpdfstring{adut}{adut}}
+{\footnotesize\ttfamily \label{structbela__stanje_a76525005a4b947c1d66e8d5dacaba7f8} 
+int bela\+\_\+stanje\+::adut}
+
+
+
+Boja aduta. 
+
+\begin{DoxySeeAlso}{Vidi također}
+znakovi\mbox{[}\mbox{]} 
+\end{DoxySeeAlso}
+\Hypertarget{structbela__stanje_ab633f79ec1f9ed9895a55d2233056f5c}\index{bela\_stanje@{bela\_stanje}!karte@{karte}}
+\index{karte@{karte}!bela\_stanje@{bela\_stanje}}
+\doxysubsubsection{\texorpdfstring{karte}{karte}}
+{\footnotesize\ttfamily \label{structbela__stanje_ab633f79ec1f9ed9895a55d2233056f5c} 
+enum \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ce}{stanje}} bela\+\_\+stanje\+::karte\mbox{[}4\mbox{]}\mbox{[}32\mbox{]}}
+
+
+
+Stanje za svakog igrača za svaku kartu (4 igrača, 32 karte) 
+
+\begin{DoxySeeAlso}{Vidi također}
+\doxylink{core_8h_ad0d01b5013b726df9e47ca63cec041ce}{stanje} 
+\end{DoxySeeAlso}
+
+
+Dokumentacija strukture je napravljena iz datoteka\+: \begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{core_8h}{core.\+h}}\end{DoxyCompactItemize}

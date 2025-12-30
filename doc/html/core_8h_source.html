@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>belai: Izvorni kod datoteke include/core.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">belai<span id="projectnumber">&#160;0.0.1</span>
+   </div>
+   <div id="projectbrief">umjetna inteligencija za belu</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generirao Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Traži',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('core_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Učitavam...</div>
+<div class="SRStatus" id="Searching">Tražim...</div>
+<div class="SRStatus" id="NoMatches">Nema traženih podataka</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">core.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="core_8h.html">Dokumenacija za ovu datoteku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef BELA_CORE123</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define BELA_CORE123</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="core_8h.html#af86f6c5e24a54ea5d5338adeb9bed68f">   10</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="core_8h.html#af86f6c5e24a54ea5d5338adeb9bed68f">znak</a> {sedam, osam, devet, deset, decko, baba, kralj, as};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/* karta je integer iz  [0, 32&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * n%8 je znak          [0,  8&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * n/8 je boja          [0,  4&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * boja je:</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> *   0 - žir</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *   1 - zvono</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *   2 - srce</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *   3 - list</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> <span class="keywordtype">char</span> znakovi[];</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">extern</span> <span class="keywordtype">int</span> bodovi[];</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <span class="keywordtype">int</span> bodovi_adut[];</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ce">   50</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ce">stanje</a> {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d">   51</a></span>    <a class="code hl_enumvalue" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d">nema</a>,      </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad">   52</a></span>    <a class="code hl_enumvalue" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad">ima</a>,       </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7">   53</a></span>    <a class="code hl_enumvalue" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7">mozda</a>,     </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1">   54</a></span>    <a class="code hl_enumvalue" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1">vjerojatno</a> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structbela__stanje.html">   60</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structbela__stanje.html">bela_stanje</a> {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">/* 4 igraca po 32 karte */</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structbela__stanje.html#ab633f79ec1f9ed9895a55d2233056f5c">   62</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ce">stanje</a> <a class="code hl_variable" href="structbela__stanje.html#ab633f79ec1f9ed9895a55d2233056f5c">karte</a>[4][32]; </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a5ea666db1d77bbd08b6c4ae15f620464">   64</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a5ea666db1d77bbd08b6c4ae15f620464">moje_karte</a>[8];        </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a3657758e752911b80c504b9838e7332a">   65</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a3657758e752911b80c504b9838e7332a">moze</a>[8];              </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a80121d32c62dcfcc8785807e19a3ea49">   66</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a80121d32c62dcfcc8785807e19a3ea49">stih</a>[4];              </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a0cd9320191f4469bc1018bc0e6ace51e">   67</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a0cd9320191f4469bc1018bc0e6ace51e">prvi</a>;                 </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structbela__stanje.html#aa247eea89cb9bd267bb7f4f865b73af1">   68</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#aa247eea89cb9bd267bb7f4f865b73af1">na_redu</a>;              </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structbela__stanje.html#aa4feb4bcc276d7526b2c21e6c41e7e3d">   69</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#aa4feb4bcc276d7526b2c21e6c41e7e3d">sljedeci_na_redu</a>;     </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structbela__stanje.html#af012e93c80ec919fdb525151ca924ade">   70</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#af012e93c80ec919fdb525151ca924ade">baceno</a>;               </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a76525005a4b947c1d66e8d5dacaba7f8">   71</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a76525005a4b947c1d66e8d5dacaba7f8">adut</a>;                 </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a91c5d889859f16988fed53f255fb7c2e">   73</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a91c5d889859f16988fed53f255fb7c2e">sijeceno</a>;             </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structbela__stanje.html#aadf86156388db65031deb6f5bd86d63e">   74</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#aadf86156388db65031deb6f5bd86d63e">najjaca</a>;              </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a73930c45d6e375e907f428d4add6fb29">   75</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a73930c45d6e375e907f428d4add6fb29">bodovi</a>[2];            </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structbela__stanje.html#a10fb2bba492ae08cca7aa085ffab518a">   76</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#a10fb2bba492ae08cca7aa085ffab518a">runda</a>;                </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structbela__stanje.html#ad83788154eb437690aa26dd1238bc3db">   77</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structbela__stanje.html#ad83788154eb437690aa26dd1238bc3db">bacili</a>[4];            </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acore_8h_html_ad0d01b5013b726df9e47ca63cec041ce"><div class="ttname"><a href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ce">stanje</a></div><div class="ttdeci">stanje</div><div class="ttdoc">stanje karte za nekog igrača</div><div class="ttdef"><b>Definition</b> core.h:50</div></div>
+<div class="ttc" id="acore_8h_html_ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d"><div class="ttname"><a href="core_8h.html#ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d">nema</a></div><div class="ttdeci">@ nema</div><div class="ttdoc">igrač sigurno nema kartu</div><div class="ttdef"><b>Definition</b> core.h:51</div></div>
+<div class="ttc" id="acore_8h_html_ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7"><div class="ttname"><a href="core_8h.html#ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7">mozda</a></div><div class="ttdeci">@ mozda</div><div class="ttdoc">ne zna se ima li igrač kartu</div><div class="ttdef"><b>Definition</b> core.h:53</div></div>
+<div class="ttc" id="acore_8h_html_ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1"><div class="ttname"><a href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1">vjerojatno</a></div><div class="ttdeci">@ vjerojatno</div><div class="ttdoc">Velika je šansa da igrač ima kartu, ali nije sigurno. Ovo se još ne koristi u kodu.</div><div class="ttdef"><b>Definition</b> core.h:54</div></div>
+<div class="ttc" id="acore_8h_html_ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad"><div class="ttname"><a href="core_8h.html#ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad">ima</a></div><div class="ttdeci">@ ima</div><div class="ttdoc">igrač sigurno ima kartu</div><div class="ttdef"><b>Definition</b> core.h:52</div></div>
+<div class="ttc" id="acore_8h_html_af86f6c5e24a54ea5d5338adeb9bed68f"><div class="ttname"><a href="core_8h.html#af86f6c5e24a54ea5d5338adeb9bed68f">znak</a></div><div class="ttdeci">znak</div><div class="ttdoc">Znak na karti za belu. poredani su po redosljedu za zvanja.</div><div class="ttdef"><b>Definition</b> core.h:10</div></div>
+<div class="ttc" id="astructbela__stanje_html"><div class="ttname"><a href="structbela__stanje.html">bela_stanje</a></div><div class="ttdoc">Sadrži sve informacije o stanju partije.</div><div class="ttdef"><b>Definition</b> core.h:60</div></div>
+<div class="ttc" id="astructbela__stanje_html_a0cd9320191f4469bc1018bc0e6ace51e"><div class="ttname"><a href="structbela__stanje.html#a0cd9320191f4469bc1018bc0e6ace51e">bela_stanje::prvi</a></div><div class="ttdeci">int prvi</div><div class="ttdoc">indeks igrača koji je prvi na redu</div><div class="ttdef"><b>Definition</b> core.h:67</div></div>
+<div class="ttc" id="astructbela__stanje_html_a10fb2bba492ae08cca7aa085ffab518a"><div class="ttname"><a href="structbela__stanje.html#a10fb2bba492ae08cca7aa085ffab518a">bela_stanje::runda</a></div><div class="ttdeci">int runda</div><div class="ttdoc">brojač za runde (1 runda = pokupljen 1 štih)</div><div class="ttdef"><b>Definition</b> core.h:76</div></div>
+<div class="ttc" id="astructbela__stanje_html_a3657758e752911b80c504b9838e7332a"><div class="ttname"><a href="structbela__stanje.html#a3657758e752911b80c504b9838e7332a">bela_stanje::moze</a></div><div class="ttdeci">int moze[8]</div><div class="ttdoc">koje karte se mogu bacit (koristi se za funkciju moze_se_bacit)</div><div class="ttdef"><b>Definition</b> core.h:65</div></div>
+<div class="ttc" id="astructbela__stanje_html_a5ea666db1d77bbd08b6c4ae15f620464"><div class="ttname"><a href="structbela__stanje.html#a5ea666db1d77bbd08b6c4ae15f620464">bela_stanje::moje_karte</a></div><div class="ttdeci">int moje_karte[8]</div><div class="ttdoc">Karte koje ai ima.</div><div class="ttdef"><b>Definition</b> core.h:64</div></div>
+<div class="ttc" id="astructbela__stanje_html_a73930c45d6e375e907f428d4add6fb29"><div class="ttname"><a href="structbela__stanje.html#a73930c45d6e375e907f428d4add6fb29">bela_stanje::bodovi</a></div><div class="ttdeci">int bodovi[2]</div><div class="ttdoc">broj bodova: [0]: mi (ai + netko), [1]: vi (druga 2 igrača)</div><div class="ttdef"><b>Definition</b> core.h:75</div></div>
+<div class="ttc" id="astructbela__stanje_html_a76525005a4b947c1d66e8d5dacaba7f8"><div class="ttname"><a href="structbela__stanje.html#a76525005a4b947c1d66e8d5dacaba7f8">bela_stanje::adut</a></div><div class="ttdeci">int adut</div><div class="ttdoc">Boja aduta.</div><div class="ttdef"><b>Definition</b> core.h:71</div></div>
+<div class="ttc" id="astructbela__stanje_html_a80121d32c62dcfcc8785807e19a3ea49"><div class="ttname"><a href="structbela__stanje.html#a80121d32c62dcfcc8785807e19a3ea49">bela_stanje::stih</a></div><div class="ttdeci">int stih[4]</div><div class="ttdoc">karte na stolu</div><div class="ttdef"><b>Definition</b> core.h:66</div></div>
+<div class="ttc" id="astructbela__stanje_html_a91c5d889859f16988fed53f255fb7c2e"><div class="ttname"><a href="structbela__stanje.html#a91c5d889859f16988fed53f255fb7c2e">bela_stanje::sijeceno</a></div><div class="ttdeci">int sijeceno</div><div class="ttdoc">1 ako je bačen adut, a prva karta nije adut, inače 0</div><div class="ttdef"><b>Definition</b> core.h:73</div></div>
+<div class="ttc" id="astructbela__stanje_html_aa247eea89cb9bd267bb7f4f865b73af1"><div class="ttname"><a href="structbela__stanje.html#aa247eea89cb9bd267bb7f4f865b73af1">bela_stanje::na_redu</a></div><div class="ttdeci">int na_redu</div><div class="ttdoc">indeks igrača koji je na redu</div><div class="ttdef"><b>Definition</b> core.h:68</div></div>
+<div class="ttc" id="astructbela__stanje_html_aa4feb4bcc276d7526b2c21e6c41e7e3d"><div class="ttname"><a href="structbela__stanje.html#aa4feb4bcc276d7526b2c21e6c41e7e3d">bela_stanje::sljedeci_na_redu</a></div><div class="ttdeci">int sljedeci_na_redu</div><div class="ttdoc">indeks igrača koji je sljedeći na redu</div><div class="ttdef"><b>Definition</b> core.h:69</div></div>
+<div class="ttc" id="astructbela__stanje_html_aadf86156388db65031deb6f5bd86d63e"><div class="ttname"><a href="structbela__stanje.html#aadf86156388db65031deb6f5bd86d63e">bela_stanje::najjaca</a></div><div class="ttdeci">int najjaca</div><div class="ttdoc">najjača karta, koristi se interno u nekim funkcijama</div><div class="ttdef"><b>Definition</b> core.h:74</div></div>
+<div class="ttc" id="astructbela__stanje_html_ab633f79ec1f9ed9895a55d2233056f5c"><div class="ttname"><a href="structbela__stanje.html#ab633f79ec1f9ed9895a55d2233056f5c">bela_stanje::karte</a></div><div class="ttdeci">enum stanje karte[4][32]</div><div class="ttdoc">Stanje za svakog igrača za svaku kartu (4 igrača, 32 karte)</div><div class="ttdef"><b>Definition</b> core.h:62</div></div>
+<div class="ttc" id="astructbela__stanje_html_ad83788154eb437690aa26dd1238bc3db"><div class="ttname"><a href="structbela__stanje.html#ad83788154eb437690aa26dd1238bc3db">bela_stanje::bacili</a></div><div class="ttdeci">int bacili[4]</div><div class="ttdoc">za svakog igrača prati je li bacio kartu u ovoj rundi</div><div class="ttdef"><b>Definition</b> core.h:77</div></div>
+<div class="ttc" id="astructbela__stanje_html_af012e93c80ec919fdb525151ca924ade"><div class="ttname"><a href="structbela__stanje.html#af012e93c80ec919fdb525151ca924ade">bela_stanje::baceno</a></div><div class="ttdeci">int baceno</div><div class="ttdoc">baceno = na_redu - prvi</div><div class="ttdef"><b>Definition</b> core.h:70</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="core_8h.html">core.h</a></li>
+    <li class="footer">Generirao <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+\doxysection{core.\+h}
+\hypertarget{core_8h_source}{}\label{core_8h_source}\index{include/core.h@{include/core.h}}
+\mbox{\hyperlink{core_8h}{Dokumenacija za ovu datoteku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ BELA\_CORE123}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ BELA\_CORE123}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{core_8h_af86f6c5e24a54ea5d5338adeb9bed68f}{znak}}\ \{sedam,\ osam,\ devet,\ deset,\ decko,\ baba,\ kralj,\ as\};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{/*\ karta\ je\ integer\ iz\ \ [0,\ 32>}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ n\%8\ je\ znak\ \ \ \ \ \ \ \ \ \ [0,\ \ 8>}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ n/8\ je\ boja\ \ \ \ \ \ \ \ \ \ [0,\ \ 4>}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ boja\ je:}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ 0\ -\/\ žir}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ 1\ -\/\ zvono}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ 2\ -\/\ srce}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ 3\ -\/\ list}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ znakovi[];}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ bodovi[];}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ bodovi\_adut[];}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ce}{stanje}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041cea4320cf603e43e65ea7886ceea1672f6d}{nema}},\ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ceaf3a6e13cd740c1ce5225795dfc596bad}{ima}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041cea7da1ba51e91d5727825f85c3e01589e7}{mozda}},\ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ceadbb1f599cea23b8952850a1a00c823c1}{vjerojatno}}\ }
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structbela__stanje}{bela\_stanje}}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{/*\ 4\ igraca\ po\ 32\ karte\ */}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{core_8h_ad0d01b5013b726df9e47ca63cec041ce}{stanje}}\ \mbox{\hyperlink{structbela__stanje_ab633f79ec1f9ed9895a55d2233056f5c}{karte}}[4][32];\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a5ea666db1d77bbd08b6c4ae15f620464}{moje\_karte}}[8];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a3657758e752911b80c504b9838e7332a}{moze}}[8];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a80121d32c62dcfcc8785807e19a3ea49}{stih}}[4];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a0cd9320191f4469bc1018bc0e6ace51e}{prvi}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_aa247eea89cb9bd267bb7f4f865b73af1}{na\_redu}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_aa4feb4bcc276d7526b2c21e6c41e7e3d}{sljedeci\_na\_redu}};\ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_af012e93c80ec919fdb525151ca924ade}{baceno}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a76525005a4b947c1d66e8d5dacaba7f8}{adut}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a91c5d889859f16988fed53f255fb7c2e}{sijeceno}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_aadf86156388db65031deb6f5bd86d63e}{najjaca}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a73930c45d6e375e907f428d4add6fb29}{bodovi}}[2];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_a10fb2bba492ae08cca7aa085ffab518a}{runda}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structbela__stanje_ad83788154eb437690aa26dd1238bc3db}{bacili}}[4];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

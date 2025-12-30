@@ -1,0 +1,37 @@
+\doxysection{Opis datoteke include/ai.h}
+\hypertarget{ai_8h}{}\label{ai_8h}\index{include/ai.h@{include/ai.h}}
+{\ttfamily \#include "{}core.\+h"{}}\newline
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ai_8h_a2185d28c145892af77488d9de1a62f1e}{izaberi\+\_\+kartu}} (struct \mbox{\hyperlink{structbela__stanje}{bela\+\_\+stanje}} \texorpdfstring{$\ast$}{*}s, int biramaduta, int moram\+\_\+zvat)
+\begin{DoxyCompactList}\small\item\em Traži kartu koju je najbolje odigrati. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{ai_8h_doc-func-members}
+\doxysubsection{Dokumentacije funkcija}
+\Hypertarget{ai_8h_a2185d28c145892af77488d9de1a62f1e}\index{ai.h@{ai.h}!izaberi\_kartu@{izaberi\_kartu}}
+\index{izaberi\_kartu@{izaberi\_kartu}!ai.h@{ai.h}}
+\doxysubsubsection{\texorpdfstring{izaberi\_kartu()}{izaberi\_kartu()}}
+{\footnotesize\ttfamily \label{ai_8h_a2185d28c145892af77488d9de1a62f1e} 
+int izaberi\+\_\+kartu (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbela__stanje}{bela\+\_\+stanje}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{int}]{biramaduta}{, }\item[{int}]{moram\+\_\+zvat}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Traži kartu koju je najbolje odigrati. 
+
+Podijeli nasumično karte drugim igračima s obzirom na to koje karte su do sad bacili (prema tome se zne koje karte sigurno imaju ili nemaju). Sa podijeljenim kartama odigra nasumične partije do kraja i gleda s kojom početnom kartom ima najviše karte za pobijedu. Karte se dijele drugim igračima više puta.
+
+
+\begin{DoxyParams}{Parametri}
+{\em s} & stanje u trenutku biranja najbolje karte \\
+\hline
+{\em biramaduta} & 1 ako se bira adut, 0 ako se bira karta \\
+\hline
+{\em moram\+\_\+zvat} & 1 ako mora zvat, 0 ako smije reći dalje\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Povratne vrijednosti}
+ako se bira karta, vraća integer 0-\/31, a ako se bira adut onda integer 0-\/3 ili -\/1 za dalje 
+\end{DoxyReturn}

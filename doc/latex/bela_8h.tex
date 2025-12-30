@@ -1,0 +1,92 @@
+\doxysection{Opis datoteke include/bela.h}
+\hypertarget{bela_8h}{}\label{bela_8h}\index{include/bela.h@{include/bela.h}}
+{\ttfamily \#include "{}core.\+h"{}}\newline
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{bela_8h_aeeb719e21d8c90e4236c73e66da8297a}{jaca}} (int ova, int od\+\_\+ove, int adut)
+\begin{DoxyCompactList}\small\item\em Uspoređuje jačinu dvaju karata. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bela_8h_a48bfb2d494a9cec04beef734d1623061}{moze\+\_\+se\+\_\+bacit}} (struct \mbox{\hyperlink{structbela__stanje}{bela\+\_\+stanje}} \texorpdfstring{$\ast$}{*}s, int kartee\mbox{[}8\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gleda koje karte se smiju bacit s obzirom na štih. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bela_8h_a885f7db73b6a2cb4f8acde26789119da}{izbroji\+\_\+stih}} (struct \mbox{\hyperlink{structbela__stanje}{bela\+\_\+stanje}} \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Broji bodove u štihu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bela_8h_a67733674fb932486cd656d4f27e97157}{printaj\+\_\+kartu}} (int karta)
+\begin{DoxyCompactList}\small\item\em Printa kartu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{bela_8h_doc-func-members}
+\doxysubsection{Dokumentacije funkcija}
+\Hypertarget{bela_8h_a885f7db73b6a2cb4f8acde26789119da}\index{bela.h@{bela.h}!izbroji\_stih@{izbroji\_stih}}
+\index{izbroji\_stih@{izbroji\_stih}!bela.h@{bela.h}}
+\doxysubsubsection{\texorpdfstring{izbroji\_stih()}{izbroji\_stih()}}
+{\footnotesize\ttfamily \label{bela_8h_a885f7db73b6a2cb4f8acde26789119da} 
+void izbroji\+\_\+stih (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbela__stanje}{bela\+\_\+stanje}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Broji bodove u štihu. 
+
+Za zadnji štih automatski dodaje +10
+
+
+\begin{DoxyParams}{Parametri}
+{\em s\mbox{[}in,out\mbox{]}} & Stanje partije. Mijenja se s-\/\texorpdfstring{$>$}{>}bodovi. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bela_8h_aeeb719e21d8c90e4236c73e66da8297a}\index{bela.h@{bela.h}!jaca@{jaca}}
+\index{jaca@{jaca}!bela.h@{bela.h}}
+\doxysubsubsection{\texorpdfstring{jaca()}{jaca()}}
+{\footnotesize\ttfamily \label{bela_8h_aeeb719e21d8c90e4236c73e66da8297a} 
+int jaca (\begin{DoxyParamCaption}\item[{int}]{ova}{, }\item[{int}]{od\+\_\+ove}{, }\item[{int}]{adut}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Uspoređuje jačinu dvaju karata. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em ova} & prva karta \\
+\hline
+{\em od\+\_\+ove} & druga karta \\
+\hline
+{\em adut} & 1 ako su karte u adutu, 0 ako nisu\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Povratne vrijednosti}
+1 ako je ova jača od od\+\_\+ove, inače 0 
+\end{DoxyReturn}
+\Hypertarget{bela_8h_a48bfb2d494a9cec04beef734d1623061}\index{bela.h@{bela.h}!moze\_se\_bacit@{moze\_se\_bacit}}
+\index{moze\_se\_bacit@{moze\_se\_bacit}!bela.h@{bela.h}}
+\doxysubsubsection{\texorpdfstring{moze\_se\_bacit()}{moze\_se\_bacit()}}
+{\footnotesize\ttfamily \label{bela_8h_a48bfb2d494a9cec04beef734d1623061} 
+void moze\+\_\+se\+\_\+bacit (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbela__stanje}{bela\+\_\+stanje}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{int}]{kartee}{\mbox{[}8\mbox{]}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Gleda koje karte se smiju bacit s obzirom na štih. 
+
+
+\begin{DoxyParams}[1]{Parametri}
+\mbox{\texttt{in,out}}  & {\em s} & Stanje partije. Mijenja se samo s-\/\texorpdfstring{$>$}{>}moze. \\
+\hline
+\mbox{\texttt{in}}  & {\em kartee} & Karte igrača koji gleda jel smije bacit. Ako je NULL, gleda se iz s-\/\texorpdfstring{$>$}{>}moje\+\_\+karte. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bela_8h_a67733674fb932486cd656d4f27e97157}\index{bela.h@{bela.h}!printaj\_kartu@{printaj\_kartu}}
+\index{printaj\_kartu@{printaj\_kartu}!bela.h@{bela.h}}
+\doxysubsubsection{\texorpdfstring{printaj\_kartu()}{printaj\_kartu()}}
+{\footnotesize\ttfamily \label{bela_8h_a67733674fb932486cd656d4f27e97157} 
+void printaj\+\_\+kartu (\begin{DoxyParamCaption}\item[{int}]{karta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Printa kartu. 
+
+printa u obliku npr. TQ za tref baba
+
+
+\begin{DoxyParams}{Parametri}
+{\em karta} & integer 0-\/31 \\
+\hline
+\end{DoxyParams}

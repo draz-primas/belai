@@ -1,6 +1,30 @@
 #include <stdio.h>
 #include "core.h"
 
+char znakovi[] = { 'T', 'K', 'H', 'P' };
+
+int bodovi[] = {
+    [sedam] = 0,
+    [osam] = 0,
+    [devet] = 0,
+    [deset] = 10,
+    [decko] = 2,
+    [baba] = 3,
+    [kralj] = 4,
+    [as] = 11,
+};
+
+int bodovi_adut[] = {
+    [sedam] = 0,
+    [osam] = 0,
+    [devet] = 14,
+    [deset] = 10,
+    [decko] = 20,
+    [baba] = 3,
+    [kralj] = 4,
+    [as] = 11,
+};
+
 int jaca(int ova, int od_ove, int adut) {
     int *skala = adut ? bodovi_adut : bodovi;
     if (skala[ova%8] == skala[od_ove%8]) /* npr. 7 i 8 */
